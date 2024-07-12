@@ -2,10 +2,11 @@
 
 // Same Shared Module Layer
 
-import IReadable from '../../shared/application/repositories/IReadable';
-import IStorable from '../../shared/application/repositories/IStorable';
-import Repository from '../../shared/application/repositories/Repository';
 import Service from '../../shared/application/services/Service';
+
+import type Repository from '../../shared/application/repositories/Repository';
+import type IReadable from '../../shared/application/repositories/IReadable';
+import type IStorable from '../../shared/application/repositories/IStorable';
 
 // Lower Shared Module Layers
 

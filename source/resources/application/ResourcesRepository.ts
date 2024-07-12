@@ -1,4 +1,6 @@
-import type InMemoryDatabaseManager from '../../shared/adapters/repositories/InMemoryDatabaseManager';
+// Libraries
+
+// Same Shared Module Layer
 
 import Repository from '../../shared/application/repositories/Repository';
 import IStorable from '../../shared/application/repositories/IStorable';
@@ -7,14 +9,39 @@ import IFilterable from '../../shared/application/repositories/IFilterable';
 import IReadable from '../../shared/application/repositories/IReadable';
 import IUpdatable from '../../shared/application/repositories/IUpdatable';
 
+import type DatabaseManager from '../../shared/application/repositories/DatabaseManager';
+
+// Lower Shared Module Layers
+
 import type Resource from '../domain/Resource';
+
+// Other Modules
+
+// Same Layer
+
+// Lower Layers
+
+// Types
+
+type TDatabaseManager = (
+  DatabaseManager &
+  IStorable &
+  IDeletable &
+  IFilterable<Resource[]> &
+  IReadable<Resource[]> &
+  IUpdatable
+);
+
+// Interfaces
+
+// Constants
 
 
 /**
  * @description 
  */
 export default class ResourcesRepository
-  extends Repository<InMemoryDatabaseManager<Resource>>
+  extends Repository<TDatabaseManager>
   implements IStorable, IDeletable, IFilterable, IReadable, IUpdatable
 {
 
@@ -32,7 +59,7 @@ export default class ResourcesRepository
 
   // Constructor, Getters, Setters
 
-  public constructor(manager: InMemoryDatabaseManager<Resource>)
+  public constructor(manager: TDatabaseManager)
   {
     super(manager);
   }
