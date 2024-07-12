@@ -66,7 +66,7 @@ export default class ResourcesExpressController
 
     const resources = await ResourcesService.all(rep);
 
-    res.json(resources);
+    res.json(resources.map(res => res.flatten()));
   }
 
   // protected static METHODS

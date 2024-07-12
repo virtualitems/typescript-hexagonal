@@ -35,6 +35,8 @@ export default abstract class Entity
 
   public abstract equals(other: Entity): boolean;
 
+  public abstract flatten(): Record<string, any>;
+
   public abstract toString(): string;
 
   // protected METHODS

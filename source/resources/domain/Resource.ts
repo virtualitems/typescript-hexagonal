@@ -88,6 +88,15 @@ export default class Resource extends Entity
     return this._id.equals(other.id);
   }
 
+  public override flatten(): Record<string, any>
+  {
+    return {
+      id: this._id.value,
+      name: this._name.value,
+      price: this._price.value
+    };
+  }
+
   public override toString(): string
   {
     return String({
