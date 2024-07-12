@@ -1,0 +1,14 @@
+{
+  "name": "javascript-hexagonal-architecture",
+  "version": "1.0.0",
+  "description": "JavaScript Hexagonal Architecture",
+  "main": "source/main.ts",
+  "scripts": {
+  },
+  "keywords": [],
+  "author": "",
+  "dependencies": {
+  },
+  "devDependencies": {
+  }
+}
