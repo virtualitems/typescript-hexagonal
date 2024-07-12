@@ -1,6 +1,6 @@
 // Libraries
 
-import { type Application, type Request, type Response } from 'express';
+import { type Request, type Response } from 'express';
 
 // Same Shared Module Layer
 
@@ -17,7 +17,7 @@ import InMemoryDatabaseManager from '../../shared/adapters/repositories/InMemory
 import ResourcesRepository from '../application/ResourcesRepository';
 import ResourcesService from '../application/ResourcesService';
 
-import Resource from '../domain/Resource';
+import type Resource from '../domain/Resource';
 
 // Types
 
@@ -29,7 +29,7 @@ import Resource from '../domain/Resource';
 /**
  * @description 
  */
-export default class ResourcesExpressPlugin
+export default class ResourcesExpressController
 {
 
   // public ATTRIBUTES
@@ -42,21 +42,9 @@ export default class ResourcesExpressPlugin
 
   // protected static ATTRIBUTES
 
-  protected readonly _prefix: string;
-
   // private static ATTRIBUTES
 
   // Constructor, Getters, Setters
-
-  public constructor(prefix: string)
-  {
-    this._prefix = prefix;
-  }
-
-  get prefix(): string
-  {
-    return this._prefix;
-  }
 
   // public METHODS
 
@@ -66,22 +54,19 @@ export default class ResourcesExpressPlugin
 
   // public static METHODS
 
-  public install(app: Application)
+  public static async test(_: Request, res: Response)
   {
-    app.get(this._prefix + '/test', async (_: Request, res: Response) => {
+    const res1 = ResourcesService.create('1', 200);
+    const res2 = ResourcesService.create('2', 200);
 
-      const res1 = ResourcesService.create('1', 200);
-      const res2 = ResourcesService.create('2', 200);
+    const mgr = new InMemoryDatabaseManager<Resource>([]);
+    const rep = new ResourcesRepository(mgr);
 
-      const mgr = new InMemoryDatabaseManager<Resource>([]);
-      const rep = new ResourcesRepository(mgr);
+    await ResourcesService.store(rep, [res1, res2]);
 
-      await ResourcesService.store(rep, [res1, res2]);
+    const resources = await ResourcesService.all(rep);
 
-      const resources = await ResourcesService.all(rep);
-
-      res.json(resources);
-    });
+    res.json(resources);
   }
 
   // protected static METHODS

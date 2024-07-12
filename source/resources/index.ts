@@ -10,7 +10,7 @@
 
 // Lower Layers
 
-import ResourcesExpressPlugin from './adapters/express';
+import ResourcesExpressController from './adapters/ResourcesExpressController';
 
 // Types
 
@@ -18,10 +18,19 @@ import ResourcesExpressPlugin from './adapters/express';
 
 // Constants
 
+// Functions
 
-const ports = {
-  ResourcesExpressPlugin
+function routes(prefix: string)
+{
+  return {
+    test: {
+      url: prefix + '/test',
+      handler: ResourcesExpressController.test,
+    }
+  };
+}
+
+
+export default {
+  routes
 };
-
-
-export default ports;

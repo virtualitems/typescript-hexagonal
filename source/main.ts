@@ -3,9 +3,9 @@ import resources from './resources';
 
 const app = express();
 
-const resourcesExpressPlugin = new resources.ResourcesExpressPlugin('/resources');
+const routes = resources.routes('/resources');
 
-resourcesExpressPlugin.install(app);
+app.get(routes.test.url, routes.test.handler);
 
 app.listen(3000, () => {
   console.log('Server is running on port 3000');
