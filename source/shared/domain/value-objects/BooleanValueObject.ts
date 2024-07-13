@@ -73,8 +73,7 @@ export default class BooleanValueObject extends ValueObject
 
   public static override from(value: T): BooleanValueObject
   {
-    if (!this.isValid(value))
-    {
+    if (!this.isValid(value)) {
       throw new Error(`Invalid value ${value?.constructor.name}(${String(value)}) for ${this.name}.`);
     }
     return new this(value);

@@ -65,8 +65,7 @@ export default class IntegerValueObject extends NumericValueObject
 
   public static override from(value: T): IntegerValueObject
   {
-    if (!this.isValid(value))
-    {
+    if (!this.isValid(value)) {
       throw new Error(`Invalid value ${value?.constructor.name}(${String(value)}) for ${this.name}.`);
     }
     return new this(value);
