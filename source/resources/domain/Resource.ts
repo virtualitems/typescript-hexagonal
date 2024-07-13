@@ -33,7 +33,7 @@ export default class Resource extends Entity
 
   // protected ATTRIBUTES
 
-  protected readonly _id: SlugValueObject;
+  protected readonly _slug: SlugValueObject;
 
   protected _name: StringValueObject;
 
@@ -48,17 +48,17 @@ export default class Resource extends Entity
   // private static ATTRIBUTES
 
   // Constructor, Getters, Setters
-  public constructor(id: SlugValueObject, name: StringValueObject, price: NumericValueObject)
+  public constructor(slug: SlugValueObject, name: StringValueObject, price: NumericValueObject)
   {
     super();
-    this._id = id;
+    this._slug = slug;
     this._name = name;
     this._price = price;
   }
 
-  public get id(): SlugValueObject
+  public get slug(): SlugValueObject
   {
-    return this._id;
+    return this._slug;
   }
 
   public get name(): StringValueObject
@@ -85,13 +85,13 @@ export default class Resource extends Entity
 
   public override equals(other: Resource): boolean
   {
-    return this._id.equals(other.id);
+    return this._slug.equals(other.slug);
   }
 
   public override flatten(): Record<string, any>
   {
     return {
-      id: this._id.value,
+      id: this._slug.value,
       name: this._name.value,
       price: this._price.value
     };
@@ -100,7 +100,7 @@ export default class Resource extends Entity
   public override toString(): string
   {
     return String({
-      id: this._id.toString(),
+      id: this._slug.toString(),
       name: this._name.toString(),
       price: this._price.toString()
     });

@@ -4,7 +4,7 @@ import { type Request, type Response } from 'express';
 
 // Same Shared Module Layer
 
-import ArrayDatabaseManager from '../../shared/adapters/databases/ArrayDatabaseManager';
+import SQLiteDatabaseManager from '../../shared/adapters/databases/SQLiteDatabaseManager';
 
 // Lower Shared Module Layers
 
@@ -14,10 +14,7 @@ import ArrayDatabaseManager from '../../shared/adapters/databases/ArrayDatabaseM
 
 // Lower Layers
 
-import InMemoryResourcesRepository from '../application/InMemoryResourcesRepository';
-import ResourcesService from '../application/ResourcesService';
-
-import type Resource from '../domain/Resource';
+import RelationalResourcesRepository from '../application/RelationalResourcesRepository';
 
 // Types
 
@@ -56,15 +53,10 @@ export default class ResourcesExpressController
 
   public static async test(_: Request, res: Response)
   {
-    const res1 = ResourcesService.create('1', 200);
-    const res2 = ResourcesService.create('2', 200);
+    const sqliteManager = new SQLiteDatabaseManager('resources.db');
+    const sqliteRepository = new RelationalResourcesRepository(sqliteManager);
 
-    const mgr = new ArrayDatabaseManager<Resource>([]);
-    const rep = new InMemoryResourcesRepository(mgr);
-
-    await ResourcesService.store(rep, [res1, res2]);
-
-    const resources = await ResourcesService.all(rep);
+    const resources = await sqliteRepository.all();
 
     res.json(Array.from(resources).map(res => res.flatten()));
   }

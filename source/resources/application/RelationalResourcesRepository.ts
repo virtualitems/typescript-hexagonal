@@ -9,11 +9,15 @@ import IFilterableRepository from '../../shared/application/repositories/IFilter
 import IReadableRepository from '../../shared/application/repositories/IReadableRepository';
 import IUpdatableRepository from '../../shared/application/repositories/IUpdatableRepository';
 
-import type InMemoryDatabaseManager from '../../shared/application/databases/InMemoryDatabaseManager';
+import type SQLiteDatabaseManager from '../../shared/adapters/databases/SQLiteDatabaseManager';
 
 // Lower Shared Module Layers
 
-import type Resource from '../domain/Resource';
+import Resource from '../domain/Resource';
+
+import SlugValueObject from '../../shared/domain/value-objects/SlugValueObject';
+import StringValueObject from '../../shared/domain/value-objects/StringValueObject';
+import NumericValueObject from '../../shared/domain/value-objects/NumericValueObject';
 
 // Other Modules
 
@@ -33,9 +37,9 @@ import type Resource from '../domain/Resource';
  */
 export default
   class
-    InMemoryResourcesRepository
+    RelationalResourcesRepository
   extends
-    Repository<InMemoryDatabaseManager<Resource>>
+    Repository<SQLiteDatabaseManager>
   implements
     IDeletableRepository,
     IFilterableRepository,
@@ -58,7 +62,7 @@ export default
 
   // Constructor, Getters, Setters
 
-  public constructor(manager: InMemoryDatabaseManager<Resource>)
+  public constructor(manager: SQLiteDatabaseManager)
   {
     super(manager);
   }
@@ -68,38 +72,44 @@ export default
   public async all(): Promise<Iterable<Resource>>
   {
     this._manager.connect();
-    const data = await this._manager.all();
+
+    const rawDataIterable = await this._manager.query('SELECT * FROM resources');
+
+    const rawDataList = Array.from(rawDataIterable) as (
+      Array<{ id: number; slug: string; name: string; price: number }>
+    );
+
+    const data = rawDataList.map((rawData) => {
+      return new Resource(
+        SlugValueObject.from(rawData.slug),
+        StringValueObject.from(rawData.name),
+        NumericValueObject.from(rawData.price)
+      );
+    });
+
     this._manager.disconnect();
+
     return data;
   }
 
-  public async filter(query: Partial<Resource>): Promise<Iterable<Resource>>
+  public async filter(_query: Partial<Resource>): Promise<Iterable<Resource>>
   {
-    this._manager.connect();
-    const data = await this._manager.filter(query);
-    this._manager.disconnect();
-    return data;
+    throw new Error('Method not implemented.');
   }
 
-  public async store(data: Resource): Promise<void>
+  public async store(_data: Resource): Promise<void>
   {
-    this._manager.connect();
-    this._manager.store(data);
-    this._manager.disconnect();
+    throw new Error('Method not implemented.');
   }
 
-  public async update(query: Partial<Resource>, data: Partial<Resource>): Promise<void>
+  public async update(_query: Partial<Resource>, _data: Partial<Resource>): Promise<void>
   {
-    this._manager.connect();
-    this._manager.update(query, data);
-    this._manager.disconnect();
+    throw new Error('Method not implemented.');
   }
 
-  public async delete(query: Partial<Resource>): Promise<void>
+  public async delete(_query: Partial<Resource>): Promise<void>
   {
-    this._manager.connect();
-    this._manager.delete(query);
-    this._manager.disconnect();
+    throw new Error('Method not implemented.');
   }
 
   // protected METHODS
