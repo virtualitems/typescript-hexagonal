@@ -33,7 +33,7 @@ import type Resource from '../domain/Resource';
  */
 export default
   class
-    ResourcesRepository
+  InMemoryResourcesRepository
   extends
     Repository<InMemoryDatabaseManager<Resource>>
   implements

@@ -14,7 +14,7 @@ import ArrayDatabaseManager from '../../shared/adapters/databases/ArrayDatabaseM
 
 // Lower Layers
 
-import ResourcesRepository from '../application/ResourcesRepository';
+import InMemoryResourcesRepository from '../application/InMemoryResourcesRepository';
 import ResourcesService from '../application/ResourcesService';
 
 import type Resource from '../domain/Resource';
@@ -60,7 +60,7 @@ export default class ResourcesExpressController
     const res2 = ResourcesService.create('2', 200);
 
     const mgr = new ArrayDatabaseManager<Resource>([]);
-    const rep = new ResourcesRepository(mgr);
+    const rep = new InMemoryResourcesRepository(mgr);
 
     await ResourcesService.store(rep, [res1, res2]);
 

@@ -41,7 +41,7 @@ export default
 
   // Constructor, Getters, Setters
 
-  constructor(database: Array<any>)
+  constructor(database: Array<T>)
   {
     super();
     this.database = database;
