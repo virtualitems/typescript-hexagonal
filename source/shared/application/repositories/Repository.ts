@@ -2,7 +2,7 @@
 
 // Same Shared Module Layer
 
-import type DatabaseManager from './DatabaseManager';
+import type DatabaseManager from '../databases/DatabaseManager';
 
 // Lower Shared Module Layers
 

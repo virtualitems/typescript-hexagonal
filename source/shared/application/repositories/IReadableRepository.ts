@@ -14,7 +14,7 @@
 /**
  * @description 
  */
-export default interface IDeletable<R = void>
+export default interface IReadableRepository<R = Iterable<any>>
 {
 
   // public ATTRIBUTES
@@ -33,7 +33,7 @@ export default interface IDeletable<R = void>
 
   // public METHODS
 
-  delete(...args: any[]): Promise<R>;
+  all(...args: any[]): Promise<R>;
 
   // protected METHODS
 

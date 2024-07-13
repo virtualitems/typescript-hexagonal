@@ -4,7 +4,7 @@ import { type Request, type Response } from 'express';
 
 // Same Shared Module Layer
 
-import InMemoryDatabaseManager from '../../shared/adapters/repositories/InMemoryDatabaseManager';
+import ArrayDatabaseManager from '../../shared/adapters/databases/ArrayDatabaseManager';
 
 // Lower Shared Module Layers
 
@@ -59,14 +59,14 @@ export default class ResourcesExpressController
     const res1 = ResourcesService.create('1', 200);
     const res2 = ResourcesService.create('2', 200);
 
-    const mgr = new InMemoryDatabaseManager<Resource>([]);
+    const mgr = new ArrayDatabaseManager<Resource>([]);
     const rep = new ResourcesRepository(mgr);
 
     await ResourcesService.store(rep, [res1, res2]);
 
     const resources = await ResourcesService.all(rep);
 
-    res.json(resources.map(res => res.flatten()));
+    res.json(Array.from(resources).map(res => res.flatten()));
   }
 
   // protected static METHODS

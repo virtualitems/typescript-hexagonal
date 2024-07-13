@@ -3,13 +3,13 @@
 // Same Shared Module Layer
 
 import Repository from '../../shared/application/repositories/Repository';
-import IStorable from '../../shared/application/repositories/IStorable';
-import IDeletable from '../../shared/application/repositories/IDeletable';
-import IFilterable from '../../shared/application/repositories/IFilterable';
-import IReadable from '../../shared/application/repositories/IReadable';
-import IUpdatable from '../../shared/application/repositories/IUpdatable';
+import IStorableRepository from '../../shared/application/repositories/IStorableRepository';
+import IDeletableRepository from '../../shared/application/repositories/IDeletableRepository';
+import IFilterableRepository from '../../shared/application/repositories/IFilterableRepository';
+import IReadableRepository from '../../shared/application/repositories/IReadableRepository';
+import IUpdatableRepository from '../../shared/application/repositories/IUpdatableRepository';
 
-import type DatabaseManager from '../../shared/application/repositories/DatabaseManager';
+import type InMemoryDatabaseManager from '../../shared/application/databases/InMemoryDatabaseManager';
 
 // Lower Shared Module Layers
 
@@ -23,15 +23,6 @@ import type Resource from '../domain/Resource';
 
 // Types
 
-type TDatabaseManager = (
-  DatabaseManager &
-  IStorable &
-  IDeletable &
-  IFilterable<Resource[]> &
-  IReadable<Resource[]> &
-  IUpdatable
-);
-
 // Interfaces
 
 // Constants
@@ -40,9 +31,17 @@ type TDatabaseManager = (
 /**
  * @description 
  */
-export default class ResourcesRepository
-  extends Repository<TDatabaseManager>
-  implements IStorable, IDeletable, IFilterable, IReadable, IUpdatable
+export default
+  class
+    ResourcesRepository
+  extends
+    Repository<InMemoryDatabaseManager<Resource>>
+  implements
+    IDeletableRepository,
+    IFilterableRepository,
+    IReadableRepository,
+    IStorableRepository,
+    IUpdatableRepository
 {
 
   // public ATTRIBUTES
@@ -59,14 +58,14 @@ export default class ResourcesRepository
 
   // Constructor, Getters, Setters
 
-  public constructor(manager: TDatabaseManager)
+  public constructor(manager: InMemoryDatabaseManager<Resource>)
   {
     super(manager);
   }
 
   // public METHODS
 
-  public async all(): Promise<Resource[]>
+  public async all(): Promise<Iterable<Resource>>
   {
     this._manager.connect();
     const data = await this._manager.all();
@@ -74,7 +73,7 @@ export default class ResourcesRepository
     return data;
   }
 
-  public async filter(query: Partial<Resource>): Promise<Resource[]>
+  public async filter(query: Partial<Resource>): Promise<Iterable<Resource>>
   {
     this._manager.connect();
     const data = await this._manager.filter(query);

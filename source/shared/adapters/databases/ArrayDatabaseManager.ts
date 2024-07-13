@@ -4,12 +4,7 @@
 
 // Lower Shared Module Layers
 
-import DatabaseManager from '../../application/repositories/DatabaseManager';
-import IDeletable from '../../application/repositories/IDeletable';
-import IFilterable from '../../application/repositories/IFilterable';
-import IReadable from '../../application/repositories/IReadable';
-import IStorable from '../../application/repositories/IStorable';
-import IUpdatable from '../../application/repositories/IUpdatable';
+import InMemoryDatabaseManager from '../../application/databases/InMemoryDatabaseManager';
 
 // Types
 
@@ -21,9 +16,11 @@ import IUpdatable from '../../application/repositories/IUpdatable';
 /**
  * @description 
  */
-export default class InMemoryDatabaseManager<T extends Record<string, any>>
-  extends DatabaseManager
-  implements IDeletable, IFilterable, IReadable, IStorable, IUpdatable
+export default
+  class
+    ArrayDatabaseManager<T extends Record<string, any>>
+  extends
+    InMemoryDatabaseManager
 {
 
   // Public Attributes
@@ -63,7 +60,7 @@ export default class InMemoryDatabaseManager<T extends Record<string, any>>
     this._connection = null;
   }
 
-  public async all(): Promise<Array<T>>
+  public override async all(): Promise<Array<T>>
   {
 
     if (!this._connection) {
@@ -73,7 +70,7 @@ export default class InMemoryDatabaseManager<T extends Record<string, any>>
     return this._connection;
   }
 
-  public async filter(query: Partial<T>): Promise<Array<T>>
+  public override async filter(query: Partial<T>): Promise<Array<T>>
   {
 
     if (!this._connection) {
@@ -84,7 +81,7 @@ export default class InMemoryDatabaseManager<T extends Record<string, any>>
 
   }
 
-  public async store(data: T): Promise<void>
+  public override async store(data: T): Promise<void>
   {
 
     if (!this._connection) {
@@ -95,7 +92,7 @@ export default class InMemoryDatabaseManager<T extends Record<string, any>>
 
   }
 
-  public async update(query: Partial<T>, data: Partial<T>): Promise<void>
+  public override async update(query: Partial<T>, data: Partial<T>): Promise<void>
   {
 
     if (!this._connection) {
@@ -110,7 +107,7 @@ export default class InMemoryDatabaseManager<T extends Record<string, any>>
 
   }
 
-  public async delete(query: Partial<T>): Promise<void>
+  public override async delete(query: Partial<T>): Promise<void>
   {
 
     if (!this._connection) {

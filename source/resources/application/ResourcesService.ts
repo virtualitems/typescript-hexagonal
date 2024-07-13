@@ -5,8 +5,8 @@
 import Service from '../../shared/application/services/Service';
 
 import type Repository from '../../shared/application/repositories/Repository';
-import type IReadable from '../../shared/application/repositories/IReadable';
-import type IStorable from '../../shared/application/repositories/IStorable';
+import type IReadableRepository from '../../shared/application/repositories/IReadableRepository';
+import type IStorableRepository from '../../shared/application/repositories/IStorableRepository';
 
 // Lower Shared Module Layers
 
@@ -66,12 +66,12 @@ export default class ResourcesService extends Service
     return new Resource(entityID, entityName, entityPrice);
   }
 
-  public static async all(repository: Repository & IReadable<Resource[]>): Promise<Resource[]>
+  public static async all(repository: Repository & IReadableRepository<Iterable<Resource>>): Promise<Iterable<Resource>>
   {
     return await repository.all();
   }
 
-  public static async store(repository: Repository & IStorable, resources: Resource[]): Promise<void>
+  public static async store(repository: Repository & IStorableRepository, resources: Iterable<Resource>): Promise<void>
   {
     for (const resource of resources) {
       await repository.store(resource);

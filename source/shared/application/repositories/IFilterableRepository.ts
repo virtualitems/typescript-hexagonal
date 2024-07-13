@@ -14,7 +14,7 @@
 /**
  * @description 
  */
-export default interface IStorable<R = void>
+export default interface IFilterableRepository<R = Iterable<any>>
 {
 
   // public ATTRIBUTES
@@ -33,7 +33,7 @@ export default interface IStorable<R = void>
 
   // public METHODS
 
-  store(...args: any[]): Promise<R>;
+  filter(...args: any[]): Promise<R>;
 
   // protected METHODS
 

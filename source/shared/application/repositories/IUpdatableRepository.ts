@@ -14,7 +14,7 @@
 /**
  * @description 
  */
-export default interface IReadable<R = Iterable<any>>
+export default interface IUpdatableRepository<R = void>
 {
 
   // public ATTRIBUTES
@@ -33,7 +33,7 @@ export default interface IReadable<R = Iterable<any>>
 
   // public METHODS
 
-  all(...args: any[]): Promise<R>;
+  update(...args: any[]): Promise<R>;
 
   // protected METHODS
 
