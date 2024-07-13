@@ -10,6 +10,7 @@
 
 // Lower Layers
 
+import ResourcesCLI from './adapters/ResourcesCLI';
 import ResourcesExpressController from './adapters/ResourcesExpressController';
 
 // Types
@@ -31,6 +32,12 @@ function routes(prefix: string)
 }
 
 
+const cli = {
+  test: ResourcesCLI.test
+};
+
+
 export default {
-  routes
+  web: { routes },
+  cli
 };

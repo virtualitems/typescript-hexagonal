@@ -57,9 +57,9 @@ export default class ResourcesService extends Service
 
   // public static METHODS
 
-  public static create(name: string, price: number): Resource
+  public static create(slug: string, name: string, price: number): Resource
   {
-    const entityID = SlugValueObject.fromCurrentDate();
+    const entityID = SlugValueObject.from(slug);
     const entityName = StringValueObject.from(name);
     const entityPrice = NumericValueObject.from(price);
 
