@@ -7,10 +7,9 @@ function cli(argv: string[])
 {
 
   program.option('-t, --test', 'testing flow');
-
   program.parse(argv);
 
-  resources.cli.test().then(console.log);
+  resources.cli.test(argv).then(console.log);
 
 }
 

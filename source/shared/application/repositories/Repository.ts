@@ -35,7 +35,7 @@ export default abstract class Repository<M extends DatabaseManager = DatabaseMan
 
   // Constructor, Getters, Setters
 
-  constructor(manager: M)
+  public constructor(manager: M)
   {
     this._manager = manager;
   }

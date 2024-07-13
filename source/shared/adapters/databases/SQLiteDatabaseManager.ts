@@ -47,15 +47,6 @@ export default class SQLiteDatabaseManager extends RelationalDatabaseManager
   }
 
   // public METHODS
-  // sqlite3.Database.close -> this is for close the database after the connection
-  // sqlite3.Database.run -> this is for insert, update, delete
-  // sqlite3.Database.get -> this is for select one row
-  // sqlite3.Database.all -> this is for select multiple rows
-  // sqlite3.Database.each -> this is for select multiple rows with callback
-  // sqlite3.Database.exec -> this is for execute multiple statements
-  // sqlite3.Database.prepare -> this is for prepare a statement
-  // sqlite3.Database.serialize -> this is for serialize a group of statements
-  // sqlite3.Database.parallelize -> this is for parallelize a group of statements
 
   public override connect(): Promise<void>
   {

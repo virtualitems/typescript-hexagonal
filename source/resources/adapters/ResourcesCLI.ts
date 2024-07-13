@@ -46,7 +46,7 @@ export default class ResourcesCLI
 
   // public METHODS
 
-  public static async test()
+  public static async test(_argv: string[])
   {
     const res1 = ResourcesService.create('AAA', '1', 100);
     const res2 = ResourcesService.create('BBB', '2', 200);
