@@ -60,6 +60,36 @@ export default class NumericValueObject extends ValueObject
     return this._value.toString();
   }
 
+  public isInteger(): boolean
+  {
+    return Number.isInteger(this._value);
+  }
+
+  public isZero(): boolean
+  {
+    return this._value === 0;
+  }
+
+  public isPositive(): boolean
+  {
+    return this._value > 0;
+  }
+
+  public isNegative(): boolean
+  {
+    return this._value < 0;
+  }
+
+  public isOdd(): boolean
+  {
+    return (this._value & 1) === 1;
+  }
+
+  public isEven(): boolean
+  {
+    return (this._value & 1) === 0;
+  }
+
   // protected METHODS
 
   // private METHODS
