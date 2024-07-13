@@ -60,6 +60,11 @@ export default class BooleanValueObject extends ValueObject
     return this._value.toString();
   }
 
+  public toggle(): BooleanValueObject
+  {
+    return new BooleanValueObject(!this._value);
+  }
+
   // protected METHODS
 
   // private METHODS
