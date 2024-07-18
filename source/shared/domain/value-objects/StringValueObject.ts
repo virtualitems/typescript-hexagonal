@@ -65,13 +65,6 @@ export default class StringValueObject extends ValueObject
     return this._value === '';
   }
 
-  public isPalindrome(): boolean
-  {
-    const value = this._value.toLowerCase();
-    const reversed = value.split('').reverse().join('');
-    return value === reversed;
-  }
-
   // protected METHODS
 
   // private METHODS

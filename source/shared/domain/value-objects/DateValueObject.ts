@@ -70,11 +70,6 @@ export default class DateValueObject extends ValueObject
     return this._value < other.value;
   }
 
-  public getTime(): number
-  {
-    return this._value.getTime();
-  }
-
   // protected METHODS
 
   // private METHODS

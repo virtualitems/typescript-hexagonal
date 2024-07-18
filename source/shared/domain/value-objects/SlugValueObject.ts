@@ -71,12 +71,6 @@ export default class SlugValueObject extends StringValueObject
     return new this(value);
   }
 
-  public static fromCurrentDate(): SlugValueObject
-  {
-    const now = (new Date()).getTime();
-    return this.from(now.toString());
-  }
-
   // protected static METHODS
 
   // private static METHODS

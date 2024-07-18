@@ -60,6 +60,11 @@ export default class NullableBooleanValueObject extends ValueObject
     return String(this._value);
   }
 
+  public isIndeterminate(): boolean
+  {
+    return this._value === null;
+  }
+
   // protected METHODS
 
   // private METHODS
