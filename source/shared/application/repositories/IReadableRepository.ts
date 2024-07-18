@@ -4,6 +4,8 @@
 
 // Lower Shared Module Layers
 
+import Entity from '../../domain/entities/Entity';
+
 // Types
 
 // Interfaces
@@ -14,7 +16,7 @@
 /**
  * @description 
  */
-export default interface IReadableRepository<R = Iterable<any>>
+export default interface IReadableRepository<R = Iterable<Entity>>
 {
 
   // public ATTRIBUTES

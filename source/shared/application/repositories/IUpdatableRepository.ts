@@ -14,7 +14,7 @@
 /**
  * @description 
  */
-export default interface IUpdatableRepository<R = void>
+export default interface IUpdatableRepository
 {
 
   // public ATTRIBUTES
@@ -33,7 +33,7 @@ export default interface IUpdatableRepository<R = void>
 
   // public METHODS
 
-  update(...args: any[]): Promise<R>;
+  update(...args: any[]): Promise<unknown>;
 
   // protected METHODS
 

@@ -33,9 +33,9 @@ export default abstract class DatabaseManager
 
   // Public Methods
 
-  public abstract connect(): Promise<void>;
+  public abstract connect(): Promise<unknown>;
 
-  public abstract disconnect(): Promise<void>;
+  public abstract disconnect(): Promise<unknown>;
 
   // Protected Methods
 

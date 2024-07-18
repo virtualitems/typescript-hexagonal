@@ -14,7 +14,7 @@
 /**
  * @description 
  */
-export default interface IDeletableRepository<R = void>
+export default interface IDeletableRepository
 {
 
   // public ATTRIBUTES
@@ -33,7 +33,7 @@ export default interface IDeletableRepository<R = void>
 
   // public METHODS
 
-  delete(...args: any[]): Promise<R>;
+  delete(...args: any[]): Promise<unknown>;
 
   // protected METHODS
 

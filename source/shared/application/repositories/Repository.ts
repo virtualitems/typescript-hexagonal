@@ -16,14 +16,14 @@ import type DatabaseManager from '../databases/DatabaseManager';
 /**
  * @description Represents a data source.
  */
-export default abstract class Repository<M extends DatabaseManager = DatabaseManager>
+export default abstract class Repository
 {
 
   // Public Attributes
 
   // Protected Attributes
 
-  protected _manager: M;
+  protected _manager: DatabaseManager;
 
   // Private Attributes
 
@@ -35,7 +35,17 @@ export default abstract class Repository<M extends DatabaseManager = DatabaseMan
 
   // Constructor, Getters, Setters
 
-  public constructor(manager: M)
+  public constructor(manager: DatabaseManager)
+  {
+    this._manager = manager;
+  }
+
+  public get manager(): DatabaseManager
+  {
+    return this._manager;
+  }
+
+  public set manager(manager: DatabaseManager)
   {
     this._manager = manager;
   }

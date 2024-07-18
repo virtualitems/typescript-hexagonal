@@ -8,6 +8,8 @@ import DatabaseManager from './DatabaseManager';
 
 // Types
 
+type T = Record<string, any>;
+
 // Interfaces
 
 // Constants
@@ -18,7 +20,7 @@ import DatabaseManager from './DatabaseManager';
  */
 export default
   abstract class
-    InMemoryDatabaseManager<T extends Record<string, any> = Record<string, any>>
+    InMemoryDatabaseManager
   extends
     DatabaseManager
 {
@@ -41,11 +43,11 @@ export default
 
   public abstract all(): Promise<Iterable<T>>;
 
-  public abstract store(data: T): Promise<void>;
+  public abstract store(data: T): Promise<unknown>;
 
-  public abstract update(target: T, data: Partial<T>): Promise<void>;
+  public abstract update(target: T, data: Partial<T>): Promise<unknown>;
 
-  public abstract delete(target: T): Promise<void>;
+  public abstract delete(target: T): Promise<unknown>;
 
   // protected METHODS
 
