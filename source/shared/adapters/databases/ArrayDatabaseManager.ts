@@ -6,6 +6,8 @@
 
 import InMemoryDatabaseManager from '../../application/databases/InMemoryDatabaseManager';
 
+import type Entity from '../../domain/entities/Entity';
+
 // Types
 
 // Interfaces
@@ -18,7 +20,7 @@ import InMemoryDatabaseManager from '../../application/databases/InMemoryDatabas
  */
 export default
   class
-    ArrayDatabaseManager<T extends Record<string, any>>
+    ArrayDatabaseManager<T extends Entity>
   extends
     InMemoryDatabaseManager
 {
@@ -70,17 +72,6 @@ export default
     return this._connection;
   }
 
-  public override async filter(query: Partial<T>): Promise<Array<T>>
-  {
-
-    if (!this._connection) {
-      throw new Error('Database not connected.');
-    }
-
-    return this._connection.filter((obj: T) => this.matches(obj, query));
-
-  }
-
   public override async store(data: T): Promise<void>
   {
 
@@ -92,14 +83,14 @@ export default
 
   }
 
-  public override async update(query: Partial<T>, data: Partial<T>): Promise<void>
+  public override async update(target: T, data: Partial<T>): Promise<void>
   {
 
     if (!this._connection) {
       throw new Error('Database not connected.');
     }
 
-    const ent = this._connection.find((obj: T) => this.matches(obj, query));
+    const ent = this._connection.find((obj: T) => target.equals(obj));
 
     if (ent) {
       Object.assign(ent, data);
@@ -107,14 +98,14 @@ export default
 
   }
 
-  public override async delete(query: Partial<T>): Promise<void>
+  public override async delete(target: T): Promise<void>
   {
 
     if (!this._connection) {
       throw new Error('Database not connected.');
     }
 
-    const index = this._connection.findIndex((obj: T) => this.matches(obj, query));
+    const index = this._connection.findIndex((obj: T) => target.equals(obj));
 
     if (index >= 0) {
       this._connection.splice(index, 1);
@@ -125,16 +116,6 @@ export default
   // Protected Methods
 
   // Private Methods
-
-  private matches(complete: Record<string, any>, partial: Record<string, any>) {
-    for (const key in partial) {
-      if (partial[key] !== complete[key]) {
-        return false;
-      }
-    }
-
-    return true;
-  }
 
   // Public Static Methods
 
