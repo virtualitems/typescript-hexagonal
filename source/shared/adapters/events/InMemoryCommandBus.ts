@@ -20,7 +20,7 @@ type THandler = (payload: Record<string, any> | undefined) => void;
 /**
  * @description 
  */
-export default abstract class InMemoryCommandBus extends Bus
+export default class InMemoryCommandBus extends Bus
 {
 
   // public ATTRIBUTES
