@@ -90,6 +90,25 @@ export default class NumericValueObject extends ValueObject
     return (this._value & 1) === 0;
   }
 
+  public isBetween(min: T, max: T, inclusiveMin = true, inclusiveMax = true): boolean
+  {
+
+    if (inclusiveMin && inclusiveMax) {
+      return this._value >= min && this._value <= max;
+    }
+
+    if (inclusiveMin) {
+      return this._value >= min && this._value < max;
+    }
+
+    if (inclusiveMax) {
+      return this._value > min && this._value <= max;
+    }
+
+    return this._value > min && this._value < max;
+
+  }
+
   // protected METHODS
 
   // private METHODS
