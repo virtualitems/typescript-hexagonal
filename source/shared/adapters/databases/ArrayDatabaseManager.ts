@@ -4,7 +4,7 @@
 
 // Lower Shared Module Layers
 
-import InMemoryDatabaseManager from '../../application/databases/InMemoryDatabaseManager';
+import InMemoryDataManager from '../../application/data/InMemoryDataManager';
 
 import type Entity from '../../domain/entities/Entity';
 
@@ -22,7 +22,7 @@ export default
   class
     ArrayDatabaseManager<T extends Entity>
   extends
-    InMemoryDatabaseManager
+    InMemoryDataManager
 {
 
   // Public Attributes

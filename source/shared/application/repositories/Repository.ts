@@ -2,7 +2,7 @@
 
 // Same Shared Module Layer
 
-import type DatabaseManager from '../databases/DatabaseManager';
+import type DataManager from '../data/DataManager';
 
 // Lower Shared Module Layers
 
@@ -23,7 +23,7 @@ export default abstract class Repository
 
   // Protected Attributes
 
-  protected _manager: DatabaseManager;
+  protected _manager: DataManager;
 
   // Private Attributes
 
@@ -35,17 +35,17 @@ export default abstract class Repository
 
   // Constructor, Getters, Setters
 
-  public constructor(manager: DatabaseManager)
+  public constructor(manager: DataManager)
   {
     this._manager = manager;
   }
 
-  public get manager(): DatabaseManager
+  public get manager(): DataManager
   {
     return this._manager;
   }
 
-  public set manager(manager: DatabaseManager)
+  public set manager(manager: DataManager)
   {
     this._manager = manager;
   }

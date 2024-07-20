@@ -2,7 +2,7 @@
 
 // Same Shared Module Layer
 
-import DatabaseManager from './DatabaseManager';
+import DataManager from './DataManager';
 
 // Lower Shared Module Layers
 
@@ -20,9 +20,9 @@ type T = Record<string, any>;
  */
 export default
   abstract class
-    InMemoryDatabaseManager
+    InMemoryDataManager
   extends
-    DatabaseManager
+    DataManager
 {
 
   // public ATTRIBUTES

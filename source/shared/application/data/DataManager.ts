@@ -14,7 +14,7 @@
 /**
  * @description 
  */
-export default abstract class DatabaseManager
+export default abstract class DataManager
 {
 
   // Public Attributes
