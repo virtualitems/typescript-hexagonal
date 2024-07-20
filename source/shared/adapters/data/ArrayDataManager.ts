@@ -20,9 +20,9 @@ import type Entity from '../../domain/entities/Entity';
  */
 export default
   class
-    ArrayDatabaseManager<T extends Entity>
+    ArrayDataManager<T extends Entity>
   extends
-    InMemoryDataManager
+    InMemoryDataManager<T>
 {
 
   // Public Attributes
