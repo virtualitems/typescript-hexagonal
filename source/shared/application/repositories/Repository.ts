@@ -16,14 +16,14 @@ import type DataManager from '../data/DataManager';
 /**
  * @description Represents a data source.
  */
-export default abstract class Repository
+export default abstract class Repository<M extends DataManager = DataManager>
 {
 
   // Public Attributes
 
   // Protected Attributes
 
-  protected _manager: DataManager;
+  protected _manager: M;
 
   // Private Attributes
 
@@ -35,17 +35,17 @@ export default abstract class Repository
 
   // Constructor, Getters, Setters
 
-  public constructor(manager: DataManager)
+  public constructor(manager: M)
   {
     this._manager = manager;
   }
 
-  public get manager(): DataManager
+  public get manager(): M
   {
     return this._manager;
   }
 
-  public set manager(manager: DataManager)
+  public set manager(manager: M)
   {
     this._manager = manager;
   }
