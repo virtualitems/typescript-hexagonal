@@ -4,13 +4,12 @@
 
 // Lower Shared Module Layers
 
-import EventsBus from '../../application/events/EventsBus';
+import CommandsBus from '../../application/events/CommandsBus';
 
 import type Command from '../../application/events/Command';
+import type CommandHandler from '../../application/events/CommandHandler';
 
 // Types
-
-type THandler = (payload: Record<string, any> | undefined) => void;
 
 // Interfaces
 
@@ -20,14 +19,14 @@ type THandler = (payload: Record<string, any> | undefined) => void;
 /**
  * @description 
  */
-export default class InMemoryCommandBus extends EventsBus
+export default class InMemoryCommandBus extends CommandsBus
 {
 
   // public ATTRIBUTES
 
   // protected ATTRIBUTES
 
-  protected readonly _observers: Map<Function, Set<THandler>>;
+  protected readonly _observers: Map<Function, Set<CommandHandler>>;
 
   // private ATTRIBUTES
 
@@ -42,12 +41,12 @@ export default class InMemoryCommandBus extends EventsBus
   public constructor()
   {
     super();
-    this._observers = new Map<Function, Set<THandler>>();
+    this._observers = new Map<Function, Set<CommandHandler>>();
   }
 
   // public METHODS
 
-  public subscribe(constructor: Function, handler: THandler): void
+  public subscribe(constructor: Function, handler: CommandHandler): void
   {
 
     const list = this._observers.get(constructor);
@@ -62,7 +61,7 @@ export default class InMemoryCommandBus extends EventsBus
 
   }
 
-  public unsubscribe(constructor: Function, handler: THandler): void
+  public unsubscribe(constructor: Function, handler: CommandHandler): void
   {
     const list = this._observers.get(constructor);
 
@@ -83,7 +82,7 @@ export default class InMemoryCommandBus extends EventsBus
     }
 
     for (const handler of list) {
-      handler(command.details);
+      handler.handle(command.details);
     }
 
   }

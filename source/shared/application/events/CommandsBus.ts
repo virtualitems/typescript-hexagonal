@@ -2,6 +2,8 @@
 
 // Same Shared Module Layer
 
+import EventsBus from './EventsBus';
+
 // Lower Shared Module Layers
 
 // Types
@@ -14,7 +16,7 @@
 /**
  * @description 
  */
-export default abstract class Handler
+export default abstract class CommandsBus extends EventsBus
 {
 
   // public ATTRIBUTES
@@ -32,8 +34,6 @@ export default abstract class Handler
   // Constructor, Getters, Setters
 
   // public METHODS
-
-  public abstract handle(payload?: Record<string, unknown>): void;
 
   // protected METHODS
 
