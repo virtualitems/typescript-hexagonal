@@ -2,6 +2,8 @@
 
 // Same Shared Module Layer
 
+import Event from './Event';
+
 // Lower Shared Module Layers
 
 // Other Modules
@@ -14,12 +16,10 @@
 /**
  * @description 
  */
-export default abstract class Command
+export default abstract class Command extends Event
 {
 
   // public ATTRIBUTES
-
-  public readonly payload?: Record<string, any>;
 
   // protected ATTRIBUTES
 
@@ -33,9 +33,9 @@ export default abstract class Command
 
   // Constructor, Getters, Setters
 
-  public constructor(payload?: Record<string, any>)
+  public constructor(details?: Record<string, any>)
   {
-    this.payload = payload;
+    super(Date.now(), details);
   }
 
   // public METHODS
