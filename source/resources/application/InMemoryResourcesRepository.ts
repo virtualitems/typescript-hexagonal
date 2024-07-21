@@ -65,31 +65,31 @@ export default
 
   public async all(): Promise<Iterable<Resource>>
   {
-    this._manager.connect();
+    await this._manager.connect();
     const data = await this._manager.all();
-    this._manager.disconnect();
+    await this._manager.disconnect();
     return data;
   }
 
   public async store(data: Resource): Promise<void>
   {
-    this._manager.connect();
-    this._manager.store(data);
-    this._manager.disconnect();
+    await this._manager.connect();
+    await this._manager.store(data);
+    await this._manager.disconnect();
   }
 
   public async update(target: Resource, data: Partial<Resource>): Promise<void>
   {
-    this._manager.connect();
-    this._manager.update(target, data);
-    this._manager.disconnect();
+    await this._manager.connect();
+    await this._manager.update(target, data);
+    await this._manager.disconnect();
   }
 
   public async delete(target: Resource): Promise<void>
   {
-    this._manager.connect();
-    this._manager.delete(target);
-    this._manager.disconnect();
+    await this._manager.connect();
+    await this._manager.delete(target);
+    await this._manager.disconnect();
   }
 
   // protected METHODS
