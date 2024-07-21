@@ -4,7 +4,7 @@
 
 // Lower Shared Module Layers
 
-import Bus from '../../application/events/Bus';
+import EventsBus from '../../application/events/EventsBus';
 
 import type Command from '../../application/events/Command';
 
@@ -20,7 +20,7 @@ type THandler = (payload: Record<string, any> | undefined) => void;
 /**
  * @description 
  */
-export default class InMemoryCommandBus extends Bus
+export default class InMemoryCommandBus extends EventsBus
 {
 
   // public ATTRIBUTES
@@ -83,7 +83,7 @@ export default class InMemoryCommandBus extends Bus
     }
 
     for (const handler of list) {
-      handler(command.payload);
+      handler(command.details);
     }
 
   }

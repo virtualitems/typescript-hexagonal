@@ -2,7 +2,7 @@
 
 // Same Shared Module Layer
 
-import type Command from './Command';
+import type Event from './Event';
 
 // Lower Shared Module Layers
 
@@ -16,7 +16,7 @@ import type Command from './Command';
 /**
  * @description 
  */
-export default abstract class Bus
+export default abstract class EventsBus
 {
 
   // public ATTRIBUTES
@@ -39,7 +39,7 @@ export default abstract class Bus
 
   public abstract unsubscribe(key: unknown, handler: unknown): void;
 
-  public abstract dispatch(command: Command): void;
+  public abstract dispatch(event: Event): void;
 
   // protected METHODS
 
