@@ -6,7 +6,7 @@
 
 import InMemoryDataManager from '../../application/data/InMemoryDataManager';
 
-import type Entity from '../../domain/entities/Entity';
+import type Entity from '../../domain/Entity';
 
 // Types
 
