@@ -71,6 +71,10 @@ export default class InMemoryCommandBus extends CommandsBus
 
     list.delete(handler);
 
+    if (list.size === 0) {
+      this._observers.delete(constructor);
+    }
+
   }
 
   public dispatch(command: Command): void
