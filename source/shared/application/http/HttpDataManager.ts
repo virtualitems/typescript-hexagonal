@@ -2,13 +2,11 @@
 
 // Same Shared Module Layer
 
-import DataManager from './DataManager';
+import DataManager from '../DataManager';
 
 // Lower Shared Module Layers
 
 // Types
-
-type T = Record<string, any>;
 
 // Interfaces
 
@@ -20,7 +18,7 @@ type T = Record<string, any>;
  */
 export default
   abstract class
-    InMemoryDataManager
+    HttpDataManager
   extends
     DataManager
 {
@@ -41,13 +39,15 @@ export default
 
   // public METHODS
 
-  public abstract all(): Promise<Iterable<T>>;
+  public abstract get(...args: [any]): Promise<unknown>;
 
-  public abstract store(data: T): Promise<unknown>;
+  public abstract post(...args: [any]): Promise<unknown>;
 
-  public abstract update(target: T, data: Partial<T>): Promise<unknown>;
+  public abstract put(...args: [any]): Promise<unknown>;
 
-  public abstract delete(target: T): Promise<unknown>;
+  public abstract patch(...args: [any]): Promise<unknown>;
+
+  public abstract delete(...args: [any]): Promise<unknown>;
 
   // protected METHODS
 
