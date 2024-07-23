@@ -4,9 +4,7 @@
 
 // Lower Shared Module Layers
 
-import InMemoryDataManager from '../../application/data/InMemoryDataManager';
-
-import type Entity from '../../domain/Entity';
+import InMemoryDataManager from '../../application/memory/InMemoryDataManager';
 
 // Types
 
@@ -20,7 +18,7 @@ import type Entity from '../../domain/Entity';
  */
 export default
   class
-    ArrayDatabaseManager<T extends Entity>
+    ArrayDatabaseManager<T extends Record<string, unknown>>
   extends
     InMemoryDataManager
 {
@@ -29,9 +27,9 @@ export default
 
   // Protected Attributes
 
-  protected readonly database: Array<T>;
+  protected readonly database: T[];
 
-  protected _connection: Array<T> | null;
+  protected _connection: T[] | null;
 
   // Private Attributes
 
@@ -43,7 +41,7 @@ export default
 
   // Constructor, Getters, Setters
 
-  constructor(database: Array<T>)
+  constructor(database: T[])
   {
     super();
     this.database = database;
@@ -62,7 +60,7 @@ export default
     this._connection = null;
   }
 
-  public override async all(): Promise<Array<T>>
+  public override async all(): Promise<T[]>
   {
 
     if (!this._connection) {
@@ -90,7 +88,13 @@ export default
       throw new Error('Database not connected.');
     }
 
-    const ent = this._connection.find((obj: T) => target.equals(obj));
+    const index = this._connection.indexOf(target);
+
+    if (index < 0) {
+      throw new Error('Entity not found.');
+    }
+
+    const ent = this._connection[index];
 
     if (ent) {
       Object.assign(ent, data);
@@ -105,11 +109,13 @@ export default
       throw new Error('Database not connected.');
     }
 
-    const index = this._connection.findIndex((obj: T) => target.equals(obj));
+    const index = this._connection.indexOf(target);
 
-    if (index >= 0) {
-      this._connection.splice(index, 1);
+    if (index < 0) {
+      throw new Error('Entity not found.');
     }
+
+    this._connection.splice(index, 1);
 
   }
 
