@@ -34,7 +34,7 @@ export default abstract class UseCase
 
   // public METHODS
 
-  public abstract execute(...args: [unknown]): Promise<unknown>;
+  public abstract execute(...args: unknown[]): Promise<unknown>;
 
   // protected METHODS
 
