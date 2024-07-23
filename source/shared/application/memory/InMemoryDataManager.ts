@@ -8,8 +8,6 @@ import DataManager from '../DataManager';
 
 // Types
 
-type T = Record<string, any>;
-
 // Interfaces
 
 // Constants
@@ -20,7 +18,7 @@ type T = Record<string, any>;
  */
 export default
   abstract class
-    InMemoryDataManager
+    InMemoryDataManager<T extends Record<string, unknown> = Record<string, unknown>>
   extends
     DataManager
 {
