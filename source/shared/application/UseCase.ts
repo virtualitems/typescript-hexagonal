@@ -13,6 +13,7 @@
 
 /**
  * @description 
+ * function arguments are DataTransferObject
  */
 export default abstract class UseCase
 {

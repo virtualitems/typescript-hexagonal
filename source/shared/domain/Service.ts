@@ -13,6 +13,7 @@
 
 /**
  * @description 
+ * function arguments are Entity
  */
 export default abstract class Service
 {
