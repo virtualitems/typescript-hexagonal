@@ -2,7 +2,7 @@
 
 // Same Shared Module Layer
 
-import DataManager from '../DataManager';
+import DataManager from './DataManager';
 
 // Lower Shared Module Layers
 
@@ -16,7 +16,7 @@ import DataManager from '../DataManager';
 /**
  * @description 
  */
-export default abstract class NoRelationalDataManager extends DataManager
+export default abstract class HttpRestDataManager extends DataManager
 {
 
   // public ATTRIBUTES
@@ -34,6 +34,16 @@ export default abstract class NoRelationalDataManager extends DataManager
   // Constructor, Getters, Setters
 
   // public METHODS
+
+  public abstract get(...args: unknown[]): Promise<unknown>;
+
+  public abstract post(...args: unknown[]): Promise<unknown>;
+
+  public abstract put(...args: unknown[]): Promise<unknown>;
+
+  public abstract patch(...args: unknown[]): Promise<unknown>;
+
+  public abstract delete(...args: unknown[]): Promise<unknown>;
 
   // protected METHODS
 

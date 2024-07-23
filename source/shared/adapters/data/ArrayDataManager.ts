@@ -4,7 +4,7 @@
 
 // Lower Shared Module Layers
 
-import InMemoryDataManager from '../../application/memory/InMemoryDataManager';
+import InMemoryDataManager from '../../application/data/InMemoryDataManager';
 
 // Types
 

@@ -2,7 +2,7 @@
 
 // Same Shared Module Layer
 
-import DataManager from '../DataManager';
+import DataManager from './DataManager';
 
 // Lower Shared Module Layers
 
@@ -16,7 +16,7 @@ import DataManager from '../DataManager';
 /**
  * @description 
  */
-export default abstract class MessageQueueDataManager extends DataManager
+export default abstract class NoRelationalDataManager extends DataManager
 {
 
   // public ATTRIBUTES
