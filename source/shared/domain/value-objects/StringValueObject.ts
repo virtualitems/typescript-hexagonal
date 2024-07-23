@@ -71,7 +71,7 @@ export default class StringValueObject extends ValueObject
 
   // public static METHODS
 
-  public static override isValid(value: any): boolean
+  public static override isValid(value: string): boolean
   {
     return value.constructor === String;
   }

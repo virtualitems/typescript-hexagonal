@@ -39,15 +39,15 @@ export default
 
   // public METHODS
 
-  public abstract get(...args: [any]): Promise<unknown>;
+  public abstract get(...args: [unknown]): Promise<unknown>;
 
-  public abstract post(...args: [any]): Promise<unknown>;
+  public abstract post(...args: [unknown]): Promise<unknown>;
 
-  public abstract put(...args: [any]): Promise<unknown>;
+  public abstract put(...args: [unknown]): Promise<unknown>;
 
-  public abstract patch(...args: [any]): Promise<unknown>;
+  public abstract patch(...args: [unknown]): Promise<unknown>;
 
-  public abstract delete(...args: [any]): Promise<unknown>;
+  public abstract delete(...args: [unknown]): Promise<unknown>;
 
   // protected METHODS
 

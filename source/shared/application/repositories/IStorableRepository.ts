@@ -33,7 +33,7 @@ export default interface IStorableRepository
 
   // public METHODS
 
-  store(...args: any[]): Promise<unknown>;
+  store(...args: unknown[]): Promise<unknown>;
 
   // protected METHODS
 

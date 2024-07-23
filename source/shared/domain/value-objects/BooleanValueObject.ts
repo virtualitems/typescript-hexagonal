@@ -71,7 +71,7 @@ export default class BooleanValueObject extends ValueObject
 
   // public static METHODS
 
-  public static override isValid(value: any): boolean
+  public static override isValid(value: unknown): boolean
   {
     return (value === true) || (value === false)
   }

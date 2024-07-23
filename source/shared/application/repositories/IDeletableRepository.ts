@@ -33,7 +33,7 @@ export default interface IDeletableRepository
 
   // public METHODS
 
-  delete(...args: any[]): Promise<unknown>;
+  delete(...args: unknown[]): Promise<unknown>;
 
   // protected METHODS
 

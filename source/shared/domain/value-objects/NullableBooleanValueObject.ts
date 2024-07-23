@@ -71,7 +71,7 @@ export default class NullableBooleanValueObject extends ValueObject
 
   // public static METHODS
 
-  public static override isValid(value: any): boolean
+  public static override isValid(value: T): boolean
   {
     return (value === null) || (value === true) || (value === false);
   }

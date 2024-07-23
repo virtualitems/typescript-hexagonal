@@ -115,7 +115,7 @@ export default class NumericValueObject extends ValueObject
 
   // public static METHODS
 
-  public static override isValid(value: any): boolean
+  public static override isValid(value: number): boolean
   {
     return (
       value.constructor === Number

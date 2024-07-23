@@ -35,7 +35,7 @@ export default interface IFilterableRepository<R = Iterable<Entity>>
 
   // public METHODS
 
-  filter(...args: any[]): Promise<R>;
+  filter(...args: unknown[]): Promise<R>;
 
   // protected METHODS
 
