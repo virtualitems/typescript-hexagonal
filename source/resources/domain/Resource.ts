@@ -2,7 +2,7 @@
 
 // Same Shared Module Layer
 
-import Entity from '../../shared/domain/entities/Entity';
+import Entity from '../../shared/domain/Entity';
 
 import NumericValueObject from '../../shared/domain/value-objects/NumericValueObject';
 import SlugValueObject from '../../shared/domain/value-objects/SlugValueObject';
