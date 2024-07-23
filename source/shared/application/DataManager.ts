@@ -33,8 +33,6 @@ export default abstract class DataManager
 
   // Public Methods
 
-  public abstract connect(): Promise<unknown>;
-
   public abstract disconnect(): Promise<unknown>;
 
   // Protected Methods

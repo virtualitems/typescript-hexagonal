@@ -8,6 +8,8 @@ import InMemoryDataManager from '../../application/memory/InMemoryDataManager';
 
 // Types
 
+type TGeneric = Record<string, unknown>;
+
 // Interfaces
 
 // Constants
@@ -16,18 +18,12 @@ import InMemoryDataManager from '../../application/memory/InMemoryDataManager';
 /**
  * @description 
  */
-export default
-  class
-    ArrayDatabaseManager<T extends Record<string, unknown>>
-  extends
-    InMemoryDataManager
+export default class ArrayDataManager<T extends TGeneric> extends InMemoryDataManager
 {
 
   // Public Attributes
 
   // Protected Attributes
-
-  protected readonly database: T[];
 
   protected _connection: T[] | null;
 
@@ -44,20 +40,14 @@ export default
   constructor(database: T[])
   {
     super();
-    this.database = database;
-    this._connection = null;
+    this._connection = database;
   }
 
   // Public Methods
 
-  public override async connect()
-  {
-    this._connection = this.database;
-  }
-
   public override async disconnect()
   {
-    this._connection = null;
+    this._connection = null;  // Clear the connection
   }
 
   public override async all(): Promise<T[]>

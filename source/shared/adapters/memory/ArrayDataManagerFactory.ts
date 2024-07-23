@@ -2,9 +2,11 @@
 
 // Same Shared Module Layer
 
-import DataManager from '../DataManager';
+import ArrayDataManager from './ArrayDataManager';
 
 // Lower Shared Module Layers
+
+import DataManagerFactory from '../../application/DataManagerFactory';
 
 // Types
 
@@ -18,7 +20,7 @@ type TGeneric = Record<string, unknown>;
 /**
  * @description 
  */
-export default abstract class InMemoryDataManager extends DataManager
+export default class ArrayDataManagerFactory<T extends TGeneric> extends DataManagerFactory
 {
 
   // public ATTRIBUTES
@@ -37,13 +39,10 @@ export default abstract class InMemoryDataManager extends DataManager
 
   // public METHODS
 
-  public abstract all(): Promise<Iterable<TGeneric>>;
-
-  public abstract store(data: TGeneric): Promise<unknown>;
-
-  public abstract update(target: TGeneric, data: Partial<TGeneric>): Promise<unknown>;
-
-  public abstract delete(target: TGeneric): Promise<unknown>;
+  public override async connect(database?: []): Promise<ArrayDataManager<T>>
+  {
+    return new ArrayDataManager<T>(database ?? []);
+  }
 
   // protected METHODS
 
