@@ -18,7 +18,7 @@ import DataManager from '../DataManager';
  */
 export default
   abstract class
-    HttpDataManager
+    HttpRestDataManager
   extends
     DataManager
 {
