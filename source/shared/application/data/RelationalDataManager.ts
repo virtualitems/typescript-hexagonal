@@ -35,6 +35,12 @@ export default abstract class RelationalDataManager extends DataManager
 
   // public METHODS
 
+  public abstract define(...args: unknown[]): void;
+
+  public abstract mutation(...args: unknown[]): void;
+
+  public abstract query(...args: unknown[]): void;
+
   // protected METHODS
 
   // private METHODS
