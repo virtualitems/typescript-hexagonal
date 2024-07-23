@@ -2,11 +2,11 @@
 
 // Same Shared Module Layer
 
-import Event from './Event';
+import EventHandler from './EventHandler';
 
 // Lower Shared Module Layers
 
-// Other Modules
+// Types
 
 // Interfaces
 
@@ -16,7 +16,7 @@ import Event from './Event';
 /**
  * @description 
  */
-export default abstract class Command extends Event
+export default abstract class CommandHandler extends EventHandler
 {
 
   // public ATTRIBUTES
@@ -32,11 +32,6 @@ export default abstract class Command extends Event
   // private static ATTRIBUTES
 
   // Constructor, Getters, Setters
-
-  public constructor(details?: Record<string, any>)
-  {
-    super(Date.now(), details);
-  }
 
   // public METHODS
 

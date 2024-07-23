@@ -2,11 +2,9 @@
 
 // Same Shared Module Layer
 
-import type Command from './Command';
-
 // Lower Shared Module Layers
 
-// Types
+// Other Modules
 
 // Interfaces
 
@@ -16,10 +14,14 @@ import type Command from './Command';
 /**
  * @description 
  */
-export default abstract class Bus
+export default abstract class Event
 {
 
   // public ATTRIBUTES
+
+  public readonly timestamp: number;
+
+  public readonly details?: Record<string, any>;
 
   // protected ATTRIBUTES
 
@@ -33,13 +35,13 @@ export default abstract class Bus
 
   // Constructor, Getters, Setters
 
+  public constructor(timestamp: number, details?: Record<string, any>)
+  {
+    this.timestamp = timestamp;
+    this.details = details;
+  }
+
   // public METHODS
-
-  public abstract subscribe(key: unknown, handler: unknown): void;
-
-  public abstract unsubscribe(key: unknown, handler: unknown): void;
-
-  public abstract dispatch(command: Command): void;
 
   // protected METHODS
 

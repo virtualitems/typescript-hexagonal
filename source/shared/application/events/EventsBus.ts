@@ -2,6 +2,8 @@
 
 // Same Shared Module Layer
 
+import type Event from './Event';
+
 // Lower Shared Module Layers
 
 // Types
@@ -14,7 +16,7 @@
 /**
  * @description 
  */
-export default abstract class Handler
+export default abstract class EventsBus
 {
 
   // public ATTRIBUTES
@@ -33,7 +35,11 @@ export default abstract class Handler
 
   // public METHODS
 
-  public abstract handle(payload?: Record<string, unknown>): void;
+  public abstract subscribe(key: unknown, handler: unknown): void;
+
+  public abstract unsubscribe(key: unknown, handler: unknown): void;
+
+  public abstract dispatch(event: Event): void;
 
   // protected METHODS
 

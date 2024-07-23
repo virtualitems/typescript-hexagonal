@@ -4,7 +4,7 @@
 
 // Lower Shared Module Layers
 
-import Entity from '../../domain/entities/Entity';
+import Entity from '../../domain/Entity';
 
 // Types
 
