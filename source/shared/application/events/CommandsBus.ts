@@ -19,6 +19,8 @@ import EventsBus from './EventsBus';
 export default abstract class CommandsBus extends EventsBus
 {
 
+  [property: string | symbol]: unknown;
+
   // public ATTRIBUTES
 
   // protected ATTRIBUTES

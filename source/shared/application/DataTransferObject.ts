@@ -23,6 +23,8 @@
 export default abstract class DataTransferObject
 {
 
+  [property: string | symbol]: unknown;
+
   // public ATTRIBUTES
 
   // protected ATTRIBUTES

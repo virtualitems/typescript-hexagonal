@@ -21,6 +21,8 @@ type TGeneric = Record<string, unknown>;
 export default abstract class InMemoryDataManager extends DataManager
 {
 
+  [property: string | symbol]: unknown;
+
   // public ATTRIBUTES
 
   // protected ATTRIBUTES

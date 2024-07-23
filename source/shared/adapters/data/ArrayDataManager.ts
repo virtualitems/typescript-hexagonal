@@ -21,6 +21,8 @@ type TGeneric = Record<string, unknown>;
 export default class ArrayDataManager<T extends TGeneric> extends InMemoryDataManager
 {
 
+  [property: string | symbol]: unknown;
+
   // Public Attributes
 
   // Protected Attributes

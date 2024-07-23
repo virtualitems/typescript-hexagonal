@@ -21,6 +21,8 @@ type T = string;
 export default class StringValueObject extends ValueObject
 {
 
+  [property: string | symbol]: unknown;
+
   // public ATTRIBUTES
 
   // protected ATTRIBUTES

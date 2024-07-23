@@ -17,6 +17,8 @@
 export default interface IUpdatableRepository
 {
 
+  [property: string | symbol]: unknown;
+
   // public ATTRIBUTES
 
   // protected ATTRIBUTES

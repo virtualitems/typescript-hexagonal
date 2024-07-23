@@ -19,6 +19,8 @@ import Entity from '../../domain/Entity';
 export default interface IReadableRepository<R = Iterable<Entity>>
 {
 
+  [property: string | symbol]: unknown;
+
   // public ATTRIBUTES
 
   // protected ATTRIBUTES

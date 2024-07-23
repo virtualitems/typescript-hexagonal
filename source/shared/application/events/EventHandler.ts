@@ -17,6 +17,8 @@
 export default abstract class EventHandler
 {
 
+  [property: string | symbol]: unknown;
+
   // public ATTRIBUTES
 
   // protected ATTRIBUTES

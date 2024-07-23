@@ -18,6 +18,8 @@
 export default abstract class Service
 {
 
+  [property: string | symbol]: unknown;
+
   // public ATTRIBUTES
 
   // protected ATTRIBUTES

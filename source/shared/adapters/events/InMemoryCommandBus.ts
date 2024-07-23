@@ -22,6 +22,8 @@ import type CommandHandler from '../../application/events/CommandHandler';
 export default class InMemoryCommandBus extends CommandsBus
 {
 
+  [property: string | symbol]: unknown;
+
   // public ATTRIBUTES
 
   // protected ATTRIBUTES

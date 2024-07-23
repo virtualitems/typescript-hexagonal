@@ -19,6 +19,8 @@ type TValue = string | number | bigint | boolean | object | null;
 export default abstract class ValueObject
 {
 
+  [property: string | symbol]: unknown;
+
   // public ATTRIBUTES
 
   // protected ATTRIBUTES

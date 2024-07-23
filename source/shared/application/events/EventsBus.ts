@@ -19,6 +19,8 @@ import type Event from './Event';
 export default abstract class EventsBus
 {
 
+  [property: string | symbol]: unknown;
+
   // public ATTRIBUTES
 
   // protected ATTRIBUTES
