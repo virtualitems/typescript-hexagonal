@@ -31,7 +31,7 @@ export default abstract class ValueObject
 
   // Constructor, Getters, Setters
 
-  public abstract get value(): any;
+  public abstract get value(): string | number | bigint | boolean | object | null;
 
   // public METHODS
 
