@@ -34,7 +34,7 @@ export default
   class
     InMemoryResourcesRepository
   extends
-    Repository<InMemoryDataManager<Resource>>
+    Repository<InMemoryDataManager>
   implements
     IDeletableRepository,
     IReadableRepository,
@@ -46,6 +46,8 @@ export default
 
   // protected ATTRIBUTES
 
+  protected _database: Resource[];
+
   // private ATTRIBUTES
 
   // public static ATTRIBUTES
@@ -56,39 +58,40 @@ export default
 
   // Constructor, Getters, Setters
 
-  public constructor(manager: InMemoryDataManager<Resource>)
+  public constructor(manager: InMemoryDataManager, database: Resource[] = [])
   {
     super(manager);
+    this._database = database;
   }
 
   // public METHODS
 
   public async all(): Promise<Iterable<Resource>>
   {
-    await this._manager.connect();
+    await this._manager.connect(this._database);
     const data = await this._manager.all();
     await this._manager.disconnect();
-    return data;
+    return data as any;
   }
 
   public async store(data: Resource): Promise<void>
   {
-    await this._manager.connect();
-    await this._manager.store(data);
+    await this._manager.connect(this._database);
+    await this._manager.store(data as any);
     await this._manager.disconnect();
   }
 
   public async update(target: Resource, data: Partial<Resource>): Promise<void>
   {
-    await this._manager.connect();
-    await this._manager.update(target, data);
+    await this._manager.connect(this._database);
+    await this._manager.update(target as any, data);
     await this._manager.disconnect();
   }
 
   public async delete(target: Resource): Promise<void>
   {
-    await this._manager.connect();
-    await this._manager.delete(target);
+    await this._manager.connect(this._database);
+    await this._manager.delete(target as any);
     await this._manager.disconnect();
   }
 
