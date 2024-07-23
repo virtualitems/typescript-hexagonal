@@ -33,7 +33,7 @@ export default abstract class Command extends Event
 
   // Constructor, Getters, Setters
 
-  public constructor(details?: Record<string, any>)
+  public constructor(details?: Record<string, unknown>)
   {
     super(Date.now(), details);
   }

@@ -16,11 +16,7 @@ import DataManager from './DataManager';
 /**
  * @description 
  */
-export default
-  abstract class
-    HttpDataManager
-  extends
-    DataManager
+export default abstract class NoRelationalDataManager extends DataManager
 {
 
   // public ATTRIBUTES
@@ -38,16 +34,6 @@ export default
   // Constructor, Getters, Setters
 
   // public METHODS
-
-  public abstract get(...args: [any]): Promise<unknown>;
-
-  public abstract post(...args: [any]): Promise<unknown>;
-
-  public abstract put(...args: [any]): Promise<unknown>;
-
-  public abstract patch(...args: [any]): Promise<unknown>;
-
-  public abstract delete(...args: [any]): Promise<unknown>;
 
   // protected METHODS
 

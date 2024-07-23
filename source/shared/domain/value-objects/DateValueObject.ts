@@ -76,7 +76,7 @@ export default class DateValueObject extends ValueObject
 
   // public static METHODS
 
-  public static override isValid(value: any): boolean
+  public static override isValid(value: Date): boolean
   {
     return !isNaN(value.getTime());
   }

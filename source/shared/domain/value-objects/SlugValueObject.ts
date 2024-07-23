@@ -58,7 +58,7 @@ export default class SlugValueObject extends StringValueObject
 
   // public static METHODS
 
-  public static override isValid(value: any): boolean
+  public static override isValid(value: string): boolean
   {
     return (value.constructor === String) && (value.length > 0);
   }

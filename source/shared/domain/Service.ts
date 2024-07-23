@@ -13,8 +13,9 @@
 
 /**
  * @description 
+ * function arguments are Entity
  */
-export default interface IDeletableRepository
+export default abstract class Service
 {
 
   // public ATTRIBUTES
@@ -32,8 +33,6 @@ export default interface IDeletableRepository
   // Constructor, Getters, Setters
 
   // public METHODS
-
-  delete(...args: unknown[]): Promise<unknown>;
 
   // protected METHODS
 

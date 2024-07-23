@@ -33,7 +33,7 @@ export default interface IUpdatableRepository
 
   // public METHODS
 
-  update(...args: any[]): Promise<unknown>;
+  update(...args: unknown[]): Promise<unknown>;
 
   // protected METHODS
 

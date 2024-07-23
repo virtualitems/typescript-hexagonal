@@ -35,7 +35,7 @@ export default interface IReadableRepository<R = Iterable<Entity>>
 
   // public METHODS
 
-  all(...args: any[]): Promise<R>;
+  all(...args: unknown[]): Promise<R>;
 
   // protected METHODS
 

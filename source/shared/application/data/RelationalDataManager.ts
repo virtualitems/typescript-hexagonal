@@ -2,6 +2,8 @@
 
 // Same Shared Module Layer
 
+import DataManager from './DataManager';
+
 // Lower Shared Module Layers
 
 // Types
@@ -14,7 +16,7 @@
 /**
  * @description 
  */
-export default interface IDeletableRepository
+export default abstract class RelationalDataManager extends DataManager
 {
 
   // public ATTRIBUTES
@@ -32,8 +34,6 @@ export default interface IDeletableRepository
   // Constructor, Getters, Setters
 
   // public METHODS
-
-  delete(...args: unknown[]): Promise<unknown>;
 
   // protected METHODS
 

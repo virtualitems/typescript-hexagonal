@@ -13,8 +13,9 @@
 
 /**
  * @description 
+ * function arguments are DataTransferObject
  */
-export default interface IDeletableRepository
+export default abstract class UseCase
 {
 
   // public ATTRIBUTES
@@ -33,7 +34,7 @@ export default interface IDeletableRepository
 
   // public METHODS
 
-  delete(...args: unknown[]): Promise<unknown>;
+  public abstract execute(...args: unknown[]): Promise<unknown>;
 
   // protected METHODS
 
