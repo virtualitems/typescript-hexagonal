@@ -3,7 +3,7 @@
 // Application layer
 
 import InMemoryResourcesRepository from './application/InMemoryResourcesRepository';
-import CreateResourceUseCase from './application/CreateResourceUseCase';
+import CreateResourcesUseCase from './application/CreateResourcesUseCase';
 
 // Domain layer
 
@@ -15,6 +15,6 @@ import CreateResourceUseCase from './application/CreateResourceUseCase';
 
 export default
 {
-  CreateResourceUseCase,
+  CreateResourcesUseCase,
   InMemoryResourcesRepository,
 };
