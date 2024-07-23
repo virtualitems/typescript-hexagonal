@@ -16,11 +16,7 @@ import DataManager from '../DataManager';
 /**
  * @description 
  */
-export default
-  abstract class
-    HttpRestDataManager
-  extends
-    DataManager
+export default abstract class HttpRestDataManager extends DataManager
 {
 
   // public ATTRIBUTES
