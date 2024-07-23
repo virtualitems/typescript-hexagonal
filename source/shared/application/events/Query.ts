@@ -2,9 +2,11 @@
 
 // Same Shared Module Layer
 
+import Event from './Event';
+
 // Lower Shared Module Layers
 
-// Types
+// Other Modules
 
 // Interfaces
 
@@ -14,7 +16,7 @@
 /**
  * @description 
  */
-export default abstract class Query
+export default abstract class Query extends Event
 {
 
   // public ATTRIBUTES
@@ -30,6 +32,11 @@ export default abstract class Query
   // private static ATTRIBUTES
 
   // Constructor, Getters, Setters
+
+  public constructor(details?: Record<string, unknown>)
+  {
+    super(Date.now(), details);
+  }
 
   // public METHODS
 
