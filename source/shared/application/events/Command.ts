@@ -19,6 +19,8 @@ import Event from './Event';
 export default abstract class Command extends Event
 {
 
+  [property: string | symbol]: unknown;
+
   // public ATTRIBUTES
 
   // protected ATTRIBUTES

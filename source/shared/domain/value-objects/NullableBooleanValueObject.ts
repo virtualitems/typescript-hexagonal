@@ -21,6 +21,8 @@ type T = boolean | null;
 export default class NullableBooleanValueObject extends ValueObject
 {
 
+  [property: string | symbol]: unknown;
+
   // public ATTRIBUTES
 
   // protected ATTRIBUTES

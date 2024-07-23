@@ -19,6 +19,8 @@ import type DataManager from '../data/DataManager';
 export default abstract class Repository<M extends DataManager = DataManager>
 {
 
+  [property: string | symbol]: unknown;
+
   // Public Attributes
 
   // Protected Attributes

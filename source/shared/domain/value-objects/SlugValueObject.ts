@@ -21,6 +21,8 @@ type T = string;
 export default class SlugValueObject extends StringValueObject
 {
 
+  [property: string | symbol]: unknown;
+
   // public ATTRIBUTES
 
   // protected ATTRIBUTES

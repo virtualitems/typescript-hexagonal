@@ -21,6 +21,8 @@ type T = number;
 export default class NumericValueObject extends ValueObject
 {
 
+  [property: string | symbol]: unknown;
+
   // public ATTRIBUTES
 
   // protected ATTRIBUTES

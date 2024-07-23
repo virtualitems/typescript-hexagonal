@@ -17,6 +17,8 @@
 export default abstract class DataManager
 {
 
+  [property: string | symbol]: unknown;
+
   // Public Attributes
 
   // Protected Attributes

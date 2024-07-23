@@ -21,6 +21,8 @@ type T = boolean;
 export default class BooleanValueObject extends ValueObject
 {
 
+  [property: string | symbol]: unknown;
+
   // public ATTRIBUTES
 
   // protected ATTRIBUTES

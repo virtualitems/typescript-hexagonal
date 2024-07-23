@@ -17,6 +17,8 @@
 export default abstract class Event
 {
 
+  [property: string | symbol]: unknown;
+
   // public ATTRIBUTES
 
   public readonly timestamp: number;

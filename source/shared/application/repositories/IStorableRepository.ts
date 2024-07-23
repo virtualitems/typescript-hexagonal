@@ -17,6 +17,8 @@
 export default interface IStorableRepository
 {
 
+  [property: string | symbol]: unknown;
+
   // public ATTRIBUTES
 
   // protected ATTRIBUTES

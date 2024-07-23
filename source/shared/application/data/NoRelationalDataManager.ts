@@ -19,6 +19,8 @@ import DataManager from './DataManager';
 export default abstract class NoRelationalDataManager extends DataManager
 {
 
+  [property: string | symbol]: unknown;
+
   // public ATTRIBUTES
 
   // protected ATTRIBUTES

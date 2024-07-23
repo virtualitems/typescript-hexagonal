@@ -17,6 +17,8 @@
 export default interface IDeletableRepository
 {
 
+  [property: string | symbol]: unknown;
+
   // public ATTRIBUTES
 
   // protected ATTRIBUTES

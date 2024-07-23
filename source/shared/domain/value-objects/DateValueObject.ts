@@ -21,6 +21,8 @@ type T = Date;
 export default class DateValueObject extends ValueObject
 {
 
+  [property: string | symbol]: unknown;
+
   // public ATTRIBUTES
 
   // protected ATTRIBUTES

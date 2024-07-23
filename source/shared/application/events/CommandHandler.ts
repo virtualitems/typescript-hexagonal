@@ -19,6 +19,8 @@ import EventHandler from './EventHandler';
 export default abstract class CommandHandler extends EventHandler
 {
 
+  [property: string | symbol]: unknown;
+
   // public ATTRIBUTES
 
   // protected ATTRIBUTES
