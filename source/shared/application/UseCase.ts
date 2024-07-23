@@ -14,7 +14,7 @@
 /**
  * @description 
  */
-export default abstract class Service
+export default abstract class UseCase
 {
 
   // public ATTRIBUTES
@@ -32,6 +32,8 @@ export default abstract class Service
   // Constructor, Getters, Setters
 
   // public METHODS
+
+  public abstract execute(...args: [unknown]): Promise<unknown>;
 
   // protected METHODS
 
