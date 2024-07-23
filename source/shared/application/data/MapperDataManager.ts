@@ -16,7 +16,7 @@ import DataManager from './DataManager';
 /**
  * @description 
  */
-export default abstract class RelationalDataManager extends DataManager
+export default abstract class MapperDataManager extends DataManager
 {
 
   // public ATTRIBUTES
@@ -34,12 +34,6 @@ export default abstract class RelationalDataManager extends DataManager
   // Constructor, Getters, Setters
 
   // public METHODS
-
-  public abstract define(...args: unknown[]): void;
-
-  public abstract mutation(...args: unknown[]): void;
-
-  public abstract query(...args: unknown[]): void;
 
   // protected METHODS
 
