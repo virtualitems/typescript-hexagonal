@@ -37,15 +37,20 @@ export default class ArrayDataManager<T extends TGeneric> extends InMemoryDataMa
 
   // Constructor, Getters, Setters
 
-  constructor(database: T[])
+  constructor()
   {
     super();
-    this._connection = database;
+    this._connection = null;
   }
 
   // Public Methods
 
-  public override async disconnect()
+  public override async connect(database: []): Promise<void>
+  {
+    this._connection = database;
+  }
+
+  public override async disconnect(): Promise<void>
   {
     this._connection = null;  // Clear the connection
   }
