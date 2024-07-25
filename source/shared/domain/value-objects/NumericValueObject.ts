@@ -4,6 +4,8 @@
 
 import ValueObject from './ValueObject';
 
+import ValueError from '../Errors/ValueError';
+
 // Lower Shared Module Layers
 
 // Types
@@ -130,7 +132,7 @@ export default class NumericValueObject extends ValueObject
   public static override from(value: T): NumericValueObject
   {
     if (!this.isValid(value)) {
-      throw new Error(`Invalid value ${value?.constructor.name}(${String(value)}) for ${this.name}.`);
+      throw new ValueError(value, this.name);
     }
     return new this(value);
   }
