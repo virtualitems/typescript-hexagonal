@@ -53,12 +53,16 @@ export default class UsersService
 
   // public static METHODS
 
-  public static createUser(slug: string, data?: {name?: string, email?: string}): User
+  public static createUser(data: {slug?: string, name?: string, email?: string}): User
   {
-    const entity = new User(SlugValueObject.from(slug));
+    const entity = new User();
 
     if (data === undefined) {
       return entity;
+    }
+
+    if (data.slug !== undefined) {
+      entity.slug = SlugValueObject.from(data.slug);
     }
 
     if (data.name !== undefined) {

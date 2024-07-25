@@ -61,7 +61,7 @@ export default class CreateUsersUseCase extends UseCase
 
   public override async execute(dto: CreateUserDTO): Promise<void>
   {
-    const entity = UsersService.createUser(dto.slug, {name: dto.name, email: dto.email});
+    const entity = UsersService.createUser({slug: dto.slug, name: dto.name, email: dto.email});
     await this._repository.store(entity);
   }
 

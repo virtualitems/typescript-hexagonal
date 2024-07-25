@@ -33,13 +33,15 @@ export default class User extends Entity
 
   // public ATTRIBUTES
 
+  public email?: EmailValueObject;
+
+  public name?: StringValueObject;
+
   // protected ATTRIBUTES
 
-  protected readonly _slug: SlugValueObject;
+  protected _id?: SlugValueObject;
 
-  protected _name?: StringValueObject;
-
-  protected _email?: EmailValueObject;
+  protected _slug?: SlugValueObject;
 
   // private ATTRIBUTES
 
@@ -50,59 +52,66 @@ export default class User extends Entity
   // private static ATTRIBUTES
 
   // Constructor, Getters, Setters
-  public constructor(slug: SlugValueObject)
+
+  public constructor()
   {
     super();
-    this._slug = slug;
   }
 
-  public get slug(): SlugValueObject
+  public override get id(): SlugValueObject | undefined
+  {
+    return this._id;
+  }
+
+  public override set id(value: SlugValueObject | undefined)
+  {
+    this._id = value;
+  }
+
+  public override get slug(): SlugValueObject | undefined
   {
     return this._slug;
   }
 
-  public get name(): StringValueObject | undefined
+  public override set slug(value: SlugValueObject | undefined)
   {
-    return this._name;
-  }
-
-  public set name(value: StringValueObject)
-  {
-    this._name = value;
-  }
-
-  public get email(): EmailValueObject | undefined
-  {
-    return this._email;
-  }
-
-  public set email(value: EmailValueObject)
-  {
-    this._email = value;
+    this._slug = value;
   }
 
   // public METHODS
 
   public override equals(other: User): boolean
   {
-    return this._slug.equals(other.slug);
+
+    if (this.id !== undefined && other.id !== undefined && this.id.equals(other.id)) {
+      return true;
+    }
+
+    if (this.slug !== undefined && other.slug !== undefined && this.slug.equals(other.slug)) {
+      return true;
+    }
+
+    return false;
+
   }
 
   public override flatten(): Record<string, unknown>
   {
     return {
-      id: this._slug.value,
-      name: this._name?.value,
-      email: this._email?.value
+      id: this.id?.value,
+      slug: this.slug?.value,
+      name: this.name?.value,
+      email: this.email?.value
     };
   }
 
   public override toString(): string
   {
     return String({
-      id: this._slug.toString(),
-      name: this._name?.toString(),
-      email: this._email?.toString()
+      id: this.id?.toString(),
+      slug: this.slug?.toString(),
+      name: this.name?.toString(),
+      email: this.email?.toString()
     });
   }
 
