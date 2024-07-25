@@ -4,6 +4,8 @@
 
 import StringValueObject from './StringValueObject';
 
+import ValueError from '../Errors/ValueError';
+
 // Lower Shared Module Layers
 
 // Types
@@ -68,7 +70,7 @@ export default class SlugValueObject extends StringValueObject
   public static override from(value: T): SlugValueObject
   {
     if (!this.isValid(value)) {
-      throw new Error(`Invalid value ${value?.constructor.name}(${String(value)}) for ${this.name}.`);
+      throw new ValueError(value, this.name);
     }
     return new this(value);
   }
