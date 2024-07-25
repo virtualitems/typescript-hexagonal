@@ -78,41 +78,46 @@ export default class ArrayDataManager<T extends TGeneric> extends InMemoryDataMa
 
   }
 
-  public override async update(target: T, data: Partial<T>): Promise<void>
+  public override async update(target: Partial<T>, data: Partial<T>): Promise<void>
   {
 
     if (!this._connection) {
       throw new Error('Database not connected.');
     }
 
-    const index = this._connection.indexOf(target);
+    for (const item of this._connection) {
+      for (const key in item) {
+        if (item[key] !== target[key]) {
+          continue;
+        }
+      }
 
-    if (index < 0) {
-      throw new Error('Entity not found.');
-    }
+      Object.assign(item, data);
 
-    const ent = this._connection[index];
-
-    if (ent) {
-      Object.assign(ent, data);
-    }
+    } //:: for
 
   }
 
-  public override async delete(target: T): Promise<void>
+  public override async delete(target: Partial<T>): Promise<void>
   {
 
     if (!this._connection) {
       throw new Error('Database not connected.');
     }
 
-    const index = this._connection.indexOf(target);
+    for (let i = 0; i < this._connection.length; i++) {
 
-    if (index < 0) {
-      throw new Error('Entity not found.');
-    }
+      const item = this._connection[i];
 
-    this._connection.splice(index, 1);
+      for (const key in item) {
+        if (item[key] !== target[key]) {
+          continue;
+        }
+      }
+
+      this._connection.splice(i, 1);
+
+    } //:: for
 
   }
 
