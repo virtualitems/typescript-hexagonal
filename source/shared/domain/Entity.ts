@@ -33,10 +33,13 @@ export default abstract class Entity
 
   // Constructor, Getters, Setters
 
-  public constructor(
-    public id?: unknown,
-    public slug?: unknown,
-  ){}
+  public abstract get id(): unknown;
+
+  public abstract set id(value: unknown);
+
+  public abstract get slug(): unknown;
+
+  public abstract set slug(value: unknown);
 
   // public METHODS
 
