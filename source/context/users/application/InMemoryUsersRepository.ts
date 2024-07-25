@@ -66,7 +66,7 @@ export default class InMemoryUsersRepository extends Repository<InMemoryDataMana
   public async store(data: User): Promise<void>
   {
     await this._manager.connect(this._database);
-    await this._manager.store(data);
+    await this._manager.store(data.flatten());
     await this._manager.disconnect();
   }
 
