@@ -29,6 +29,8 @@ import User from './User';
 export default class UsersService
 {
 
+  [property: string | symbol]: unknown;
+
   // public ATTRIBUTES
 
   // protected ATTRIBUTES

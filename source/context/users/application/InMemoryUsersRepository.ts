@@ -29,6 +29,8 @@ import type User from '../domain/User';
 export default class InMemoryUsersRepository extends Repository<InMemoryDataManager>
 {
 
+  [property: string | symbol]: unknown;
+
   // public ATTRIBUTES
 
   // protected ATTRIBUTES

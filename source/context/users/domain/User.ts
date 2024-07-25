@@ -29,6 +29,8 @@ import StringValueObject from '../../../shared/domain/value-objects/StringValueO
 export default class User extends Entity
 {
 
+  [property: string | symbol]: unknown;
+
   // public ATTRIBUTES
 
   // protected ATTRIBUTES

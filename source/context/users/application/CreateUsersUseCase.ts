@@ -2,10 +2,9 @@
 
 // Same Shared Module Layer
 
+import IStorableRepository from '../../../shared/application/repositories/IStorableRepository';
+import Repository from '../../../shared/application/repositories/Repository';
 import UseCase from '../../../shared/application/UseCase';
-
-import type Repository from '../../../shared/application/repositories/Repository';
-import type IStorableRepository from '../../../shared/application/repositories/IStorableRepository';
 
 // Lower Shared Module Layers
 
@@ -14,9 +13,10 @@ import type IStorableRepository from '../../../shared/application/repositories/I
 // Same Layer
 
 import CreateUserDTO from './CreateUserDTO';
-import UsersService from '../domain/UsersService';
 
 // Lower Layers
+
+import UsersService from '../domain/UsersService';
 
 // Types
 
@@ -30,6 +30,8 @@ import UsersService from '../domain/UsersService';
  */
 export default class CreateUsersUseCase extends UseCase
 {
+
+  [property: string | symbol]: unknown;
 
   // public ATTRIBUTES
 
