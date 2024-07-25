@@ -70,17 +70,17 @@ export default class InMemoryUsersRepository extends Repository<InMemoryDataMana
     await this._manager.disconnect();
   }
 
-  public async update(target: User, data: Partial<User>): Promise<void>
+  public async update(target: User, data: User): Promise<void>
   {
     await this._manager.connect(this._database);
-    await this._manager.update(target, data);
+    await this._manager.update(target.flatten(), data.flatten());
     await this._manager.disconnect();
   }
 
   public async delete(target: User): Promise<void>
   {
     await this._manager.connect(this._database);
-    await this._manager.delete(target);
+    await this._manager.delete(target.flatten());
     await this._manager.disconnect();
   }
 
