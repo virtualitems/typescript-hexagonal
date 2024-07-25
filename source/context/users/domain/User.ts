@@ -93,7 +93,7 @@ export default class User extends Entity
     return {
       id: this._slug.value,
       name: this._name?.value,
-      price: this._email?.value
+      email: this._email?.value
     };
   }
 
@@ -102,7 +102,7 @@ export default class User extends Entity
     return String({
       id: this._slug.toString(),
       name: this._name?.toString(),
-      price: this._email?.toString()
+      email: this._email?.toString()
     });
   }
 
