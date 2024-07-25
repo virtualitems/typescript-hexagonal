@@ -4,7 +4,6 @@
 
 import InMemoryUsersRepository from './application/InMemoryUsersRepository';
 import CreateUsersUseCase from './application/CreateUsersUseCase';
-import ArrayDataManager from '../../shared/adapters/data/ArrayDataManager';
 
 // Domain layer
 
@@ -16,7 +15,6 @@ import ArrayDataManager from '../../shared/adapters/data/ArrayDataManager';
 
 export default
 {
-  ArrayDataManager,
   CreateUsersUseCase,
   InMemoryUsersRepository,
 };
