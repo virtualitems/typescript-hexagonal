@@ -47,7 +47,7 @@ export default class ArrayDataManager<T extends TGeneric> extends InMemoryDataMa
 
   // Public Methods
 
-  public override async connect(database: []): Promise<void>
+  public override async connect(database: T[]): Promise<void>
   {
     this._connection = database;  // Set the connection
   }
