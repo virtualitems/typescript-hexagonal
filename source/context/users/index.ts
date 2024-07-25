@@ -2,8 +2,9 @@
 
 // Application layer
 
-import InMemoryUsersRepository from './application/InMemoryUsersRepository';
 import CreateUsersUseCase from './application/CreateUsersUseCase';
+import InMemoryUsersRepository from './application/InMemoryUsersRepository';
+import UsersService from './domain/UsersService';
 
 // Domain layer
 
@@ -17,4 +18,5 @@ export default
 {
   CreateUsersUseCase,
   InMemoryUsersRepository,
+  UsersService,
 };
