@@ -2,10 +2,7 @@
 
 // Same Shared Module Layer
 
-import UseCase from '../../shared/application/UseCase';
-
-import type Repository from '../../shared/application/repositories/Repository';
-import type IStorableRepository from '../../shared/application/repositories/IStorableRepository';
+import DataTransferObject from '../../../shared/application/DataTransferObject';
 
 // Lower Shared Module Layers
 
@@ -14,8 +11,6 @@ import type IStorableRepository from '../../shared/application/repositories/ISto
 // Same Layer
 
 // Lower Layers
-
-import Resource from '../domain/Resource';
 
 // Types
 
@@ -27,8 +22,10 @@ import Resource from '../domain/Resource';
 /**
  * @description 
  */
-export default class CreateResourcesUseCase extends UseCase
+export default class CreateUserDTO extends DataTransferObject
 {
+
+  [property: string | symbol]: unknown;
 
   // public ATTRIBUTES
 
@@ -44,12 +41,15 @@ export default class CreateResourcesUseCase extends UseCase
 
   // Constructor, Getters, Setters
 
-  // public METHODS
-
-  public override async execute(repository: Repository & IStorableRepository, resource: Resource): Promise<void>
-  {
-    await repository.store(resource);
+  public constructor (
+    public readonly slug: string,
+    public readonly name?: string,
+    public readonly email?: string,
+  ) {
+    super();
   }
+
+  // public METHODS
 
   // protected METHODS
 
