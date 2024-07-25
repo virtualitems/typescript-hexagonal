@@ -33,6 +33,11 @@ export default abstract class Entity
 
   // Constructor, Getters, Setters
 
+  public constructor(
+    public id?: unknown,
+    public slug?: unknown,
+  ){}
+
   // public METHODS
 
   public abstract equals(other: Entity): boolean;
