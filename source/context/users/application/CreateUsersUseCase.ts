@@ -20,6 +20,8 @@ import UsersService from '../domain/UsersService';
 
 // Types
 
+type TRepository = Repository & IStorableRepository;
+
 // Interfaces
 
 // Constants
@@ -37,7 +39,7 @@ export default class CreateUsersUseCase extends UseCase
 
   // protected ATTRIBUTES
 
-  protected _repository: Repository & IStorableRepository;
+  protected _repository: TRepository;
 
   // private ATTRIBUTES
 
@@ -49,7 +51,7 @@ export default class CreateUsersUseCase extends UseCase
 
   // Constructor, Getters, Setters
 
-  public constructor(repository: Repository & IStorableRepository)
+  public constructor(repository: TRepository)
   {
     super();
     this._repository = repository;
