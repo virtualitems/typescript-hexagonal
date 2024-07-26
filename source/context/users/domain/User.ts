@@ -7,7 +7,7 @@ import IIdentifiable from '../../../shared/domain/IIdentifiable';
 import ISlugable from '../../../shared/domain/ISlugable';
 
 import EmailValueObject from '../../../shared/domain/value-objects/EmailValueObject';
-import SlugValueObject from '../../../shared/domain/value-objects/SlugValueObject';
+import SymbolValueObject from '../../../shared/domain/value-objects/SymbolValueObject';
 import StringValueObject from '../../../shared/domain/value-objects/StringValueObject';
 
 // Lower Shared Module Layers
@@ -35,9 +35,9 @@ export default class User extends Entity implements IIdentifiable, ISlugable
 
   // public ATTRIBUTES
 
-  public id?: SlugValueObject;
+  public id?: SymbolValueObject;
 
-  public slug?: SlugValueObject;
+  public slug?: SymbolValueObject;
 
   public email?: EmailValueObject;
 

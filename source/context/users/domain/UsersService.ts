@@ -3,7 +3,7 @@
 // Same Shared Module Layer
 
 import EmailValueObject from '../../../shared/domain/value-objects/EmailValueObject';
-import SlugValueObject from '../../../shared/domain/value-objects/SlugValueObject';
+import SymbolValueObject from '../../../shared/domain/value-objects/SymbolValueObject';
 import StringValueObject from '../../../shared/domain/value-objects/StringValueObject';
 
 // Lower Shared Module Layers
@@ -53,7 +53,7 @@ export default class UsersService
 
   // public static METHODS
 
-  public static createUser(data: {slug?: string, name?: string, email?: string}): User
+  public static createUser(data: {id?: symbol, slug?: symbol, name?: string, email?: string}): User
   {
     const entity = new User();
 
@@ -61,8 +61,12 @@ export default class UsersService
       return entity;
     }
 
+    if (data.id !== undefined) {
+      entity.id = SymbolValueObject.from(data.id);
+    }
+
     if (data.slug !== undefined) {
-      entity.slug = SlugValueObject.from(data.slug);
+      entity.slug = SymbolValueObject.from(data.slug);
     }
 
     if (data.name !== undefined) {
