@@ -4,7 +4,7 @@
 
 import StringValueObject from './StringValueObject';
 
-import ValueError from '../Errors/ValueError';
+import ValueError from '../errors/ValueError';
 
 // Lower Shared Module Layers
 
