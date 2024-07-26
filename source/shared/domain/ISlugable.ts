@@ -20,7 +20,7 @@
 /**
  * @description 
  */
-export default interface Slugable
+export default interface ISlugable
 {
 
   [property: string | symbol]: unknown;
