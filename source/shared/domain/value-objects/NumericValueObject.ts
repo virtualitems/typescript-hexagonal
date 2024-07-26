@@ -4,7 +4,7 @@
 
 import ValueObject from './ValueObject';
 
-import ValueError from '../Errors/ValueError';
+import ValueError from '../errors/ValueError';
 
 // Lower Shared Module Layers
 
@@ -27,9 +27,9 @@ export default class NumericValueObject extends ValueObject
 
   // public ATTRIBUTES
 
-  // protected ATTRIBUTES
+  public override readonly value: T;
 
-  protected readonly _value: T
+  // protected ATTRIBUTES
 
   // private ATTRIBUTES
 
@@ -44,72 +44,67 @@ export default class NumericValueObject extends ValueObject
   protected constructor(value: T)
   {
     super();
-    this._value = value;
-  }
-
-  public override get value(): T
-  {
-    return this._value;
+    this.value = value;
   }
 
   // public METHODS
 
   public override equals(other: NumericValueObject): boolean
   {
-    return this._value === other.value;
+    return this.value === other.value;
   }
 
   public override toString(): string
   {
-    return this._value.toString();
+    return this.value.toString();
   }
 
   public isInteger(): boolean
   {
-    return Number.isInteger(this._value);
+    return Number.isInteger(this.value);
   }
 
   public isZero(): boolean
   {
-    return this._value === 0;
+    return this.value === 0;
   }
 
   public isPositive(): boolean
   {
-    return this._value > 0;
+    return this.value > 0;
   }
 
   public isNegative(): boolean
   {
-    return this._value < 0;
+    return this.value < 0;
   }
 
   public isOdd(): boolean
   {
-    return (this._value & 1) === 1;
+    return (this.value & 1) === 1;
   }
 
   public isEven(): boolean
   {
-    return (this._value & 1) === 0;
+    return (this.value & 1) === 0;
   }
 
   public isBetween(min: T, max: T, inclusiveMin = true, inclusiveMax = true): boolean
   {
 
     if (inclusiveMin && inclusiveMax) {
-      return this._value >= min && this._value <= max;
+      return this.value >= min && this.value <= max;
     }
 
     if (inclusiveMin) {
-      return this._value >= min && this._value < max;
+      return this.value >= min && this.value < max;
     }
 
     if (inclusiveMax) {
-      return this._value > min && this._value <= max;
+      return this.value > min && this.value <= max;
     }
 
-    return this._value > min && this._value < max;
+    return this.value > min && this.value < max;
 
   }
 
@@ -119,17 +114,17 @@ export default class NumericValueObject extends ValueObject
 
   // public static METHODS
 
-  public static override isValid(value: number): boolean
+  public static override isValid(value: unknown): boolean
   {
     return (
-      value.constructor === Number
+      'number' === typeof value
       && !Object.is(value, NaN)
       && !Object.is(value, Infinity)
       && !Object.is(value, -Infinity)
     );
   }
 
-  public static override from(value: T): NumericValueObject
+  public static from(value: T): NumericValueObject
   {
     if (!this.isValid(value)) {
       throw new ValueError(value, this.name);

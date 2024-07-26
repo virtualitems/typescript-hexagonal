@@ -4,7 +4,7 @@
 
 import StringValueObject from './StringValueObject';
 
-import ValueError from '../Errors/ValueError';
+import ValueError from '../errors/ValueError';
 
 // Lower Shared Module Layers
 
@@ -65,10 +65,15 @@ export default class EmailValueObject extends StringValueObject
   /**
    * @see https://emailregex.com/
    */
-  public static override isValid(value: string): boolean
+  public static override isValid(value: unknown): boolean
   {
     const regex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-    return super.isValid(value) && regex.test(value);
+
+    if (!super.isValid(value)) {
+      return false;
+    }
+
+    return regex.test(value as string);
   }
 
   public static override from(value: T): EmailValueObject

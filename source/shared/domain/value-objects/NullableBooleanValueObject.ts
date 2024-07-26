@@ -4,7 +4,7 @@
 
 import ValueObject from './ValueObject';
 
-import ValueError from '../Errors/ValueError';
+import ValueError from '../errors/ValueError';
 
 // Lower Shared Module Layers
 
@@ -27,9 +27,9 @@ export default class NullableBooleanValueObject extends ValueObject
 
   // public ATTRIBUTES
 
-  // protected ATTRIBUTES
+  public override readonly value: T;
 
-  protected readonly _value: T
+  // protected ATTRIBUTES
 
   // private ATTRIBUTES
 
@@ -44,29 +44,24 @@ export default class NullableBooleanValueObject extends ValueObject
   protected constructor(value: T)
   {
     super();
-    this._value = value;
-  }
-
-  public override get value(): T
-  {
-    return this._value;
+    this.value = value;
   }
 
   // public METHODS
 
   public override equals(other: NullableBooleanValueObject): boolean
   {
-    return this._value === other.value;
+    return this.value === other.value;
   }
 
   public override toString(): string
   {
-    return String(this._value);
+    return String(this.value);
   }
 
   public isIndeterminate(): boolean
   {
-    return this._value === null;
+    return this.value === null;
   }
 
   // protected METHODS
@@ -75,12 +70,12 @@ export default class NullableBooleanValueObject extends ValueObject
 
   // public static METHODS
 
-  public static override isValid(value: T): boolean
+  public static override isValid(value: unknown): boolean
   {
     return (value === null) || (value === true) || (value === false);
   }
 
-  public static override from(value: T): NullableBooleanValueObject
+  public static from(value: T): NullableBooleanValueObject
   {
     if (!this.isValid(value)) {
       throw new ValueError(value, this.name);

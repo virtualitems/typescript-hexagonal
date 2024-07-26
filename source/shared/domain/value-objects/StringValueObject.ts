@@ -4,7 +4,7 @@
 
 import ValueObject from './ValueObject';
 
-import ValueError from '../Errors/ValueError';
+import ValueError from '../errors/ValueError';
 
 // Lower Shared Module Layers
 
@@ -27,9 +27,9 @@ export default class StringValueObject extends ValueObject
 
   // public ATTRIBUTES
 
-  // protected ATTRIBUTES
+  public override readonly value: T;
 
-  protected readonly _value: T
+  // protected ATTRIBUTES
 
   // private ATTRIBUTES
 
@@ -44,29 +44,24 @@ export default class StringValueObject extends ValueObject
   protected constructor(value: T)
   {
     super();
-    this._value = value;
-  }
-
-  public override get value(): T
-  {
-    return this._value;
+    this.value = value;
   }
 
   // public METHODS
 
   public override equals(other: StringValueObject): boolean
   {
-    return this._value === other.value;
+    return this.value === other.value;
   }
 
   public override toString(): string
   {
-    return this._value;
+    return this.value;
   }
 
   public isEmpty(): boolean
   {
-    return this._value === '';
+    return this.value === '';
   }
 
   // protected METHODS
@@ -75,12 +70,12 @@ export default class StringValueObject extends ValueObject
 
   // public static METHODS
 
-  public static override isValid(value: string): boolean
+  public static override isValid(value: unknown): boolean
   {
-    return value.constructor === String;
+    return ('string' === typeof value);
   }
 
-  public static override from(value: T): StringValueObject
+  public static from(value: T): StringValueObject
   {
     if (!this.isValid(value)) {
       throw new ValueError(value, this.name);
