@@ -86,13 +86,25 @@ export default class ArrayDataManager<T extends TGeneric> extends InMemoryDataMa
     }
 
     for (const item of this._connection) {
-      for (const key in item) {
-        if (item[key] !== target[key]) {
+
+      let match = true;
+
+      for (const key in target) {
+
+        if (target[key] === undefined) {
           continue;
         }
+
+        if (item[key] !== target[key]) {
+          match = false;
+          break;
+        }
+
       }
 
-      Object.assign(item, data);
+      if (match) {
+        Object.assign(item, data);
+      }
 
     } //:: for
 
