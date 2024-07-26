@@ -6,7 +6,7 @@
 
 // Types
 
-type TValue = string | number | bigint | boolean | object | null;
+type TValue = string | symbol | number | bigint | boolean | object | null;
 
 // Interfaces
 
@@ -23,6 +23,8 @@ export default abstract class ValueObject
 
   // public ATTRIBUTES
 
+  public abstract readonly value: TValue;
+
   // protected ATTRIBUTES
 
   // private ATTRIBUTES
@@ -34,8 +36,6 @@ export default abstract class ValueObject
   // private static ATTRIBUTES
 
   // Constructor, Getters, Setters
-
-  public abstract get value(): TValue;
 
   // public METHODS
 
@@ -52,11 +52,6 @@ export default abstract class ValueObject
   public static isValid(value: unknown): boolean
   {
     return value !== null && value !== undefined && !Object.is(value, NaN);
-  }
-
-  public static from(_value: TValue, ..._args: unknown[]): ValueObject
-  {
-    throw new Error('Impossible to create an instance from abstract class ValueObject');
   }
 
   // protected static METHODS

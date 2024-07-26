@@ -27,9 +27,9 @@ export default class BooleanValueObject extends ValueObject
 
   // public ATTRIBUTES
 
-  // protected ATTRIBUTES
+  public override readonly value: T;
 
-  protected readonly _value: T
+  // protected ATTRIBUTES
 
   // private ATTRIBUTES
 
@@ -44,12 +44,7 @@ export default class BooleanValueObject extends ValueObject
   protected constructor(value: T)
   {
     super();
-    this._value = value;
-  }
-
-  public override get value(): T
-  {
-    return this._value;
+    this.value = value;
   }
 
   // public METHODS
@@ -61,7 +56,7 @@ export default class BooleanValueObject extends ValueObject
 
   public override toString(): string
   {
-    return this._value.toString();
+    return this.value.toString();
   }
 
   public toggle(): BooleanValueObject
@@ -77,10 +72,10 @@ export default class BooleanValueObject extends ValueObject
 
   public static override isValid(value: unknown): boolean
   {
-    return (value === true) || (value === false)
+    return ('boolean' === typeof value);
   }
 
-  public static override from(value: T): BooleanValueObject
+  public static from(value: T): BooleanValueObject
   {
     if (!this.isValid(value)) {
       throw new ValueError(value, this.name);

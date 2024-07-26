@@ -27,9 +27,9 @@ export default class DateValueObject extends ValueObject
 
   // public ATTRIBUTES
 
-  // protected ATTRIBUTES
+  public override readonly value: T
 
-  protected readonly _value: T
+  // protected ATTRIBUTES
 
   // private ATTRIBUTES
 
@@ -44,34 +44,29 @@ export default class DateValueObject extends ValueObject
   protected constructor(value: T)
   {
     super();
-    this._value = value;
-  }
-
-  public override get value(): T
-  {
-    return this._value;
+    this.value = value;
   }
 
   // public METHODS
 
   public override equals(other: DateValueObject): boolean
   {
-    return this._value.getTime() === other.value.getTime();
+    return this.value.getTime() === other.value.getTime();
   }
 
   public override toString(): string
   {
-    return this._value.toString();
+    return this.value.toString();
   }
 
   public isAfter(other: DateValueObject): boolean
   {
-    return this._value > other.value;
+    return this.value > other.value;
   }
 
   public isBefore(other: DateValueObject): boolean
   {
-    return this._value < other.value;
+    return this.value < other.value;
   }
 
   // protected METHODS
@@ -80,12 +75,20 @@ export default class DateValueObject extends ValueObject
 
   // public static METHODS
 
-  public static override isValid(value: Date): boolean
+  public static override isValid(value: unknown): boolean
   {
+    if (value === null || value === undefined) {
+      return false;
+    }
+
+    if (!(value instanceof Date)) {
+      return false;
+    }
+
     return !isNaN(value.getTime());
   }
 
-  public static override from(value: T): DateValueObject
+  public static from(value: T): DateValueObject
   {
     if (!this.isValid(value)) {
       throw new ValueError(value, this.name);

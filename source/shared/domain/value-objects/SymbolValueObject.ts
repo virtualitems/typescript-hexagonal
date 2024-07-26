@@ -2,7 +2,7 @@
 
 // Same Shared Module Layer
 
-import StringValueObject from './StringValueObject';
+import ValueObject from './ValueObject';
 
 import ValueError from '../errors/ValueError';
 
@@ -10,7 +10,7 @@ import ValueError from '../errors/ValueError';
 
 // Types
 
-type T = string;
+type T = symbol;
 
 // Interfaces
 
@@ -20,12 +20,14 @@ type T = string;
 /**
  * @description 
  */
-export default class SlugValueObject extends StringValueObject
+export default class SymbolValueObject extends ValueObject
 {
 
   [property: string | symbol]: unknown;
 
   // public ATTRIBUTES
+
+  public override readonly value: T;
 
   // protected ATTRIBUTES
 
@@ -41,19 +43,20 @@ export default class SlugValueObject extends StringValueObject
 
   protected constructor(value: T)
   {
-    super(value);
+    super();
+    this.value = value;
   }
 
   // public METHODS
 
-  public override equals(other: SlugValueObject): boolean
+  public override equals(other: SymbolValueObject): boolean
   {
-    return this._value === other.value;
+    return this.value === other.value;
   }
 
   public override toString(): string
   {
-    return this._value;
+    return this.value.toString();
   }
 
   // protected METHODS
@@ -62,12 +65,12 @@ export default class SlugValueObject extends StringValueObject
 
   // public static METHODS
 
-  public static override isValid(value: string): boolean
+  public static override isValid(value: unknown): boolean
   {
-    return (value.constructor === String) && (value.length > 0);
+    return ('symbol' === typeof value);
   }
 
-  public static override from(value: T): SlugValueObject
+  public static from(value: T): SymbolValueObject
   {
     if (!this.isValid(value)) {
       throw new ValueError(value, this.name);
