@@ -4,7 +4,8 @@
 
 import EmailValueObject from '../../../shared/domain/value-objects/EmailValueObject';
 import Entity from '../../../shared/domain/Entity';
-
+import IIdentifiable from '../../../shared/domain/IIdentifiable';
+import Slugable from '../../../shared/domain/Slugable';
 import SlugValueObject from '../../../shared/domain/value-objects/SlugValueObject';
 import StringValueObject from '../../../shared/domain/value-objects/StringValueObject';
 
@@ -26,22 +27,22 @@ import StringValueObject from '../../../shared/domain/value-objects/StringValueO
 /**
  * @description 
  */
-export default class User extends Entity
+export default class User extends Entity implements IIdentifiable, Slugable
 {
 
   [property: string | symbol]: unknown;
 
   // public ATTRIBUTES
 
+  public id?: SlugValueObject;
+
+  public slug?: SlugValueObject;
+
   public email?: EmailValueObject;
 
   public name?: StringValueObject;
 
   // protected ATTRIBUTES
-
-  protected _id?: SlugValueObject;
-
-  protected _slug?: SlugValueObject;
 
   // private ATTRIBUTES
 
@@ -56,26 +57,6 @@ export default class User extends Entity
   public constructor()
   {
     super();
-  }
-
-  public override get id(): SlugValueObject | undefined
-  {
-    return this._id;
-  }
-
-  public override set id(value: SlugValueObject | undefined)
-  {
-    this._id = value;
-  }
-
-  public override get slug(): SlugValueObject | undefined
-  {
-    return this._slug;
-  }
-
-  public override set slug(value: SlugValueObject | undefined)
-  {
-    this._slug = value;
   }
 
   // public METHODS
