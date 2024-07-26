@@ -2,10 +2,11 @@
 
 // Same Shared Module Layer
 
-import EmailValueObject from '../../../shared/domain/value-objects/EmailValueObject';
 import Entity from '../../../shared/domain/Entity';
 import IIdentifiable from '../../../shared/domain/IIdentifiable';
-import Slugable from '../../../shared/domain/Slugable';
+import ISlugable from '../../../shared/domain/ISlugable';
+
+import EmailValueObject from '../../../shared/domain/value-objects/EmailValueObject';
 import SlugValueObject from '../../../shared/domain/value-objects/SlugValueObject';
 import StringValueObject from '../../../shared/domain/value-objects/StringValueObject';
 
@@ -27,7 +28,7 @@ import StringValueObject from '../../../shared/domain/value-objects/StringValueO
 /**
  * @description 
  */
-export default class User extends Entity implements IIdentifiable, Slugable
+export default class User extends Entity implements IIdentifiable, ISlugable
 {
 
   [property: string | symbol]: unknown;
