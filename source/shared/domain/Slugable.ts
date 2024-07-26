@@ -4,6 +4,12 @@
 
 // Lower Shared Module Layers
 
+// Other Modules
+
+// Same Layer
+
+// Lower Layers
+
 // Types
 
 // Interfaces
@@ -14,12 +20,14 @@
 /**
  * @description 
  */
-export default abstract class Entity
+export default interface Slugable
 {
 
   [property: string | symbol]: unknown;
 
   // public ATTRIBUTES
+
+  slug?: unknown;
 
   // protected ATTRIBUTES
 
@@ -34,12 +42,6 @@ export default abstract class Entity
   // Constructor, Getters, Setters
 
   // public METHODS
-
-  public abstract equals(other: Entity): boolean;
-
-  public abstract flatten(): Record<string, unknown>;
-
-  public abstract toString(): string;
 
   // protected METHODS
 
