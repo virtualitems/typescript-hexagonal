@@ -2,8 +2,8 @@
 
 // Same Shared Module Layer
 
-import IStorableRepository from '../../../shared/application/repositories/IStorableRepository';
-import Repository from '../../../shared/application/repositories/Repository';
+import IStorable from '../../../shared/application/data/IStorable';
+import Repository from '../../../shared/application/data/Repository';
 import UseCase from '../../../shared/application/UseCase';
 
 // Lower Shared Module Layers
@@ -20,7 +20,7 @@ import UsersService from '../domain/UsersService';
 
 // Types
 
-type TRepository = Repository & IStorableRepository;
+type TRepository = Repository & IStorable;
 
 // Interfaces
 

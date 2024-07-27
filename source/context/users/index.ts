@@ -3,10 +3,12 @@
 // Application layer
 
 import CreateUsersUseCase from './application/CreateUsersUseCase';
+import FindUsersUseCase from './application/FindUsersUseCase';
 import InMemoryUsersRepository from './application/InMemoryUsersRepository';
-import UsersService from './domain/UsersService';
 
 // Domain layer
+
+import UsersService from './domain/UsersService';
 
 // Constants
 
@@ -17,6 +19,7 @@ import UsersService from './domain/UsersService';
 export default
 {
   CreateUsersUseCase,
+  FindUsersUseCase,
   InMemoryUsersRepository,
   UsersService,
 };
