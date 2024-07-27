@@ -4,8 +4,6 @@
 
 // Lower Shared Module Layers
 
-import Entity from '../../domain/Entity';
-
 // Types
 
 // Interfaces
@@ -16,7 +14,7 @@ import Entity from '../../domain/Entity';
 /**
  * @description 
  */
-export default interface IFilterableRepository<R = Iterable<Entity>>
+export default interface IStorable
 {
 
   [property: string | symbol]: unknown;
@@ -37,7 +35,7 @@ export default interface IFilterableRepository<R = Iterable<Entity>>
 
   // public METHODS
 
-  filter(...args: unknown[]): Promise<R>;
+  store(...args: unknown[]): Promise<unknown>;
 
   // protected METHODS
 

@@ -14,7 +14,7 @@
 /**
  * @description 
  */
-export default interface IDeletableRepository
+export default interface IUpdatable
 {
 
   [property: string | symbol]: unknown;
@@ -35,7 +35,7 @@ export default interface IDeletableRepository
 
   // public METHODS
 
-  delete(...args: unknown[]): Promise<unknown>;
+  update(...args: unknown[]): Promise<unknown>;
 
   // protected METHODS
 

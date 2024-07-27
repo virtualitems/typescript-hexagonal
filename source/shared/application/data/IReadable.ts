@@ -14,7 +14,7 @@
 /**
  * @description 
  */
-export default interface IStorableRepository
+export default interface IReadable<T>
 {
 
   [property: string | symbol]: unknown;
@@ -35,7 +35,7 @@ export default interface IStorableRepository
 
   // public METHODS
 
-  store(...args: unknown[]): Promise<unknown>;
+  all(...args: unknown[]): Promise<Iterable<T>>;
 
   // protected METHODS
 
