@@ -2,8 +2,6 @@
 
 // Same Shared Module Layer
 
-import DataManager from './DataManager';
-
 // Lower Shared Module Layers
 
 // Types
@@ -16,7 +14,7 @@ import DataManager from './DataManager';
 /**
  * @description 
  */
-export default abstract class InMemoryDataManager extends DataManager
+export default class Response
 {
 
   [property: string | symbol]: unknown;
@@ -35,15 +33,13 @@ export default abstract class InMemoryDataManager extends DataManager
 
   // Constructor, Getters, Setters
 
+  public constructor(
+    public readonly data: unknown,
+    public readonly error: unknown,
+    public readonly message: unknown,
+  ){}
+
   // public METHODS
-
-  public abstract all(): Promise<Iterable<TObject>>;
-
-  public abstract store(data: TObject): Promise<unknown>;
-
-  public abstract update(target: TObject, data: Partial<TObject>): Promise<unknown>;
-
-  public abstract delete(target: TObject): Promise<unknown>;
 
   // protected METHODS
 
