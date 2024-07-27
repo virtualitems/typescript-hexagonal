@@ -16,7 +16,7 @@ import InMemoryDataManager from '../../application/data/InMemoryDataManager';
 /**
  * @description 
  */
-export default class ArrayDataManager<T extends Record<string | symbol, unknown>> extends InMemoryDataManager
+export default class ArrayDataManager<T extends TObject> extends InMemoryDataManager
 {
 
   [property: string | symbol]: unknown;

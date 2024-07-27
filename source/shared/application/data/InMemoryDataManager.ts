@@ -37,13 +37,13 @@ export default abstract class InMemoryDataManager extends DataManager
 
   // public METHODS
 
-  public abstract all(): Promise<Iterable<Record<string | symbol, unknown>>>;
+  public abstract all(): Promise<Iterable<TObject>>;
 
-  public abstract store(data: Record<string | symbol, unknown>): Promise<unknown>;
+  public abstract store(data: TObject): Promise<unknown>;
 
-  public abstract update(target: Record<string | symbol, unknown>, data: Partial<Record<string | symbol, unknown>>): Promise<unknown>;
+  public abstract update(target: TObject, data: Partial<TObject>): Promise<unknown>;
 
-  public abstract delete(target: Record<string | symbol, unknown>): Promise<unknown>;
+  public abstract delete(target: TObject): Promise<unknown>;
 
   // protected METHODS
 
