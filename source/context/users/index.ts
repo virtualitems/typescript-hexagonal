@@ -2,13 +2,13 @@
 
 // Application layer
 
-import CreateUsersUseCase from './application/CreateUsersUseCase';
-import FindUsersUseCase from './application/FindUsersUseCase';
-import InMemoryUsersRepository from './application/InMemoryUsersRepository';
+import CreateUsersUseCase from '@context/users/application/CreateUsersUseCase';
+import FindUsersUseCase from '@context/users/application/FindUsersUseCase';
+import InMemoryUsersRepository from '@context/users/application/InMemoryUsersRepository';
 
 // Domain layer
 
-import UsersService from './domain/UsersService';
+import UsersService from '@context/users/domain/UsersService';
 
 // Constants
 

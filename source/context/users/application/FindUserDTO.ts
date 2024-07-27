@@ -2,7 +2,7 @@
 
 // Same Shared Module Layer
 
-import DataTransferObject from '../../../shared/application/DataTransferObject';
+import DataTransferObject from '@shared/application/DataTransferObject';
 
 // Lower Shared Module Layers
 

@@ -2,9 +2,9 @@
 
 // Same Shared Module Layer
 
-import IStorable from '../../../shared/application/data/IStorable';
-import Repository from '../../../shared/application/data/Repository';
-import UseCase from '../../../shared/application/UseCase';
+import IStorable from '@shared/application/data/IStorable';
+import Repository from '@shared/application/data/Repository';
+import UseCase from '@shared/application/UseCase';
 
 // Lower Shared Module Layers
 
@@ -12,11 +12,11 @@ import UseCase from '../../../shared/application/UseCase';
 
 // Same Layer
 
-import CreateUserDTO from './CreateUserDTO';
+import CreateUserDTO from '@context/users/application/CreateUserDTO';
 
 // Lower Layers
 
-import UsersService from '../domain/UsersService';
+import UsersService from '@context/users/domain/UsersService';
 
 // Types
 

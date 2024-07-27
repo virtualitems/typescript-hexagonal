@@ -2,9 +2,9 @@
 
 // Same Shared Module Layer
 
-import EmailValueObject from '../../../shared/domain/value-objects/EmailValueObject';
-import SymbolValueObject from '../../../shared/domain/value-objects/SymbolValueObject';
-import StringValueObject from '../../../shared/domain/value-objects/StringValueObject';
+import EmailValueObject from '@shared/domain/value-objects/EmailValueObject';
+import SymbolValueObject from '@shared/domain/value-objects/SymbolValueObject';
+import StringValueObject from '@shared/domain/value-objects/StringValueObject';
 
 // Lower Shared Module Layers
 
@@ -12,7 +12,7 @@ import StringValueObject from '../../../shared/domain/value-objects/StringValueO
 
 // Same Layer
 
-import User from './User';
+import User from '@context/users/domain/User';
 
 // Lower Layers
 

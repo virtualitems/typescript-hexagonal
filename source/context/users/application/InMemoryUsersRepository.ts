@@ -2,10 +2,10 @@
 
 // Same Shared Module Layer
 
-import Repository from '../../../shared/application/data/Repository';
-import IReadableRepository from '../../../shared/application/data/IReadable';
+import Repository from '@shared/application/data/Repository';
+import IReadableRepository from '@shared/application/data/IReadable';
 
-import type InMemoryDataManager from '../../../shared/application/data/InMemoryDataManager';
+import type InMemoryDataManager from '@shared/application/data/InMemoryDataManager';
 
 // Lower Shared Module Layers
 
@@ -15,9 +15,9 @@ import type InMemoryDataManager from '../../../shared/application/data/InMemoryD
 
 // Lower Layers
 
-import UsersService from '../domain/UsersService';
+import UsersService from '@context/users/domain/UsersService';
 
-import type User from '../domain/User';
+import type User from '@context/users/domain/User';
 
 // Types
 

@@ -2,9 +2,9 @@
 
 // Same Shared Module Layer
 
-import DataManager from '../../../shared/application/data/DataManager';
-import IReadable from '../../../shared/application/data/IReadable';
-import UseCase from '../../../shared/application/UseCase';
+import DataManager from '@shared/application/data/DataManager';
+import IReadable from '@shared/application/data/IReadable';
+import UseCase from '@shared/application/UseCase';
 
 // Lower Shared Module Layers
 
@@ -12,7 +12,7 @@ import UseCase from '../../../shared/application/UseCase';
 
 // Same Layer
 
-import type FindUserDTO from './FindUserDTO';
+import type FindUserDTO from '@context/users/application/FindUserDTO';
 
 // Lower Layers
 
