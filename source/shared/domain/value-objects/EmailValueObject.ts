@@ -2,9 +2,9 @@
 
 // Same Shared Module Layer
 
-import StringValueObject from './StringValueObject';
+import StringValueObject from '@shared/domain/value-objects/StringValueObject';
 
-import ValueError from '../errors/ValueError';
+import ValueError from '@shared/domain/errors/ValueError';
 
 // Lower Shared Module Layers
 

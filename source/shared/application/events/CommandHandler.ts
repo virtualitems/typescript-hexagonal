@@ -2,7 +2,7 @@
 
 // Same Shared Module Layer
 
-import EventHandler from './EventHandler';
+import EventHandler from '@shared/application/events/EventHandler';
 
 // Lower Shared Module Layers
 

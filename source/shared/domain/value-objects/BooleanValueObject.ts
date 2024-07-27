@@ -2,9 +2,9 @@
 
 // Same Shared Module Layer
 
-import ValueObject from './ValueObject';
+import ValueObject from '@shared/domain/value-objects/ValueObject';
 
-import ValueError from '../errors/ValueError';
+import ValueError from '@shared/domain/errors/ValueError';
 
 // Lower Shared Module Layers
 
