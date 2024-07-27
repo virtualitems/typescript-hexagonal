@@ -56,7 +56,7 @@ export default class SymbolValueObject extends ValueObject
 
   public override toString(): string
   {
-    return this.value.toString();
+    return this.value.description ?? this.value.toString();
   }
 
   // protected METHODS
