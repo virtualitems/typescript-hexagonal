@@ -2,7 +2,7 @@
 
 // Same Shared Module Layer
 
-import DataManager from './DataManager';
+import DataManager from '@shared/application/data/DataManager';
 
 // Lower Shared Module Layers
 

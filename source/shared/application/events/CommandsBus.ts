@@ -2,7 +2,7 @@
 
 // Same Shared Module Layer
 
-import EventsBus from './EventsBus';
+import EventsBus from '@shared/application/events/EventsBus';
 
 // Lower Shared Module Layers
 

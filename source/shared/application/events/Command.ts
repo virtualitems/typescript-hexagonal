@@ -2,7 +2,7 @@
 
 // Same Shared Module Layer
 
-import Event from './Event';
+import Event from '@shared/application/events/Event';
 
 // Lower Shared Module Layers
 
