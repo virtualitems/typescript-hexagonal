@@ -18,7 +18,7 @@ import type FindUserDTO from './FindUserDTO';
 
 // Types
 
-type TManager = DataManager & IReadable<Record<string | symbol, unknown>>;
+type TManager = DataManager & IReadable<TObject>;
 
 // Interfaces
 

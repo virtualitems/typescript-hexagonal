@@ -35,7 +35,7 @@ export default
   extends
     Repository<InMemoryDataManager>
   implements
-    IReadableRepository<Record<string | symbol, unknown>>
+    IReadableRepository<TObject>
 {
 
   [property: string | symbol]: unknown;
