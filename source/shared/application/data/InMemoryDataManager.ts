@@ -8,8 +8,6 @@ import DataManager from './DataManager';
 
 // Types
 
-type TGeneric = Record<string, unknown>;
-
 // Interfaces
 
 // Constants
@@ -39,13 +37,13 @@ export default abstract class InMemoryDataManager extends DataManager
 
   // public METHODS
 
-  public abstract all(): Promise<Iterable<TGeneric>>;
+  public abstract all(): Promise<Iterable<Record<string | symbol, unknown>>>;
 
-  public abstract store(data: TGeneric): Promise<unknown>;
+  public abstract store(data: Record<string | symbol, unknown>): Promise<unknown>;
 
-  public abstract update(target: TGeneric, data: Partial<TGeneric>): Promise<unknown>;
+  public abstract update(target: Record<string | symbol, unknown>, data: Partial<Record<string | symbol, unknown>>): Promise<unknown>;
 
-  public abstract delete(target: TGeneric): Promise<unknown>;
+  public abstract delete(target: Record<string | symbol, unknown>): Promise<unknown>;
 
   // protected METHODS
 
