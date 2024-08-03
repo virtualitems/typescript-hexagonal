@@ -16,16 +16,16 @@ import type DataManager from './DataManager';
 /**
  * @description Represents a data source.
  */
-export default abstract class Repository<M extends DataManager = DataManager>
+export default abstract class Repository<M extends DataManager>
 {
 
   [property: string | symbol]: unknown;
 
   // Public Attributes
 
-  // Protected Attributes
+  public manager: M;
 
-  protected _manager: M;
+  // Protected Attributes
 
   // Private Attributes
 
@@ -39,17 +39,7 @@ export default abstract class Repository<M extends DataManager = DataManager>
 
   public constructor(manager: M)
   {
-    this._manager = manager;
-  }
-
-  public get manager(): M
-  {
-    return this._manager;
-  }
-
-  public set manager(manager: M)
-  {
-    this._manager = manager;
+    this.manager = manager;
   }
 
   // Public Methods
