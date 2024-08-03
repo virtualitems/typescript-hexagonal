@@ -1,25 +1,17 @@
 // Adapters layer
 
+export { default as UsersArrayDataManager } from './adapters/UsersArrayDataManager';
+
 // Application layer
 
-import CreateUsersUseCase from '@context/users/application/CreateUsersUseCase';
-import FindUsersUseCase from '@context/users/application/FindUsersUseCase';
-import InMemoryUsersRepository from '@context/users/application/InMemoryUsersRepository';
+export { default as CreateUsersUseCase } from './application/CreateUsersUseCase';
+export { default as FindUsersUseCase } from './application/FindUsersUseCase';
+export { default as UsersRepository } from './application/UsersRepository';
 
 // Domain layer
 
-import UsersService from '@context/users/domain/UsersService';
+export { default as UsersService } from './domain/UsersService';
 
 // Constants
 
 // Functions
-
-// Exports
-
-export default
-{
-  CreateUsersUseCase,
-  FindUsersUseCase,
-  InMemoryUsersRepository,
-  UsersService,
-};

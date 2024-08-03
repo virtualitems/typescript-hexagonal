@@ -2,10 +2,9 @@
 
 // Same Shared Module Layer
 
-import Repository from '@shared/application/data/Repository';
-import IReadableRepository from '@shared/application/data/IReadable';
+import type DataManager from '@shared/application/data/DataManager';
 
-import type InMemoryDataManager from '@shared/application/data/InMemoryDataManager';
+import Repository from '@shared/application/data/Repository';
 
 // Lower Shared Module Layers
 
@@ -13,13 +12,17 @@ import type InMemoryDataManager from '@shared/application/data/InMemoryDataManag
 
 // Same Layer
 
-// Lower Layers
+import type IUsersDataManager from '@context/users/application/IUsersDataManager';
 
-import UsersService from '@context/users/domain/UsersService';
+// Lower Layers
 
 import type User from '@context/users/domain/User';
 
+import UsersService from '@context/users/domain/UsersService';
+
 // Types
+
+type TManager = DataManager & IUsersDataManager;
 
 // Interfaces
 
@@ -31,11 +34,9 @@ import type User from '@context/users/domain/User';
  */
 export default
   class
-    InMemoryUsersRepository
+    UsersRepository
   extends
-    Repository<InMemoryDataManager>
-  implements
-    IReadableRepository<TObject>
+    Repository<TManager>
 {
 
   [property: string | symbol]: unknown;
@@ -54,7 +55,7 @@ export default
 
   // Constructor, Getters, Setters
 
-  public constructor(manager: InMemoryDataManager)
+  public constructor(manager: TManager)
   {
     super(manager);
   }
@@ -65,7 +66,7 @@ export default
   {
     await this._manager.connect();
     const query = await this._manager.all();
-    const data = Array.from(query).map(raw => UsersService.createUser(raw));
+    const data = Array.from(query).map(UsersService.createUser);
     await this._manager.disconnect();
     return data;
   }

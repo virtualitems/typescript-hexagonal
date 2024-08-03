@@ -65,15 +65,22 @@ export default class User extends Entity implements IIdentifiable, ISlugable
   public override equals(other: User): boolean
   {
 
-    if (this.id !== undefined && other.id !== undefined && this.id.equals(other.id)) {
-      return true;
+    const existsID = this.id !== undefined && other.id !== undefined;
+    const existsSlug = this.slug !== undefined && other.slug !== undefined;
+
+    if (!existsID && !existsSlug) {
+      return false;
     }
 
-    if (this.slug !== undefined && other.slug !== undefined && this.slug.equals(other.slug)) {
-      return true;
+    if (existsID && !(this.id!.equals(other.id!)) ) {
+      return false;
     }
 
-    return false;
+    if (existsSlug && !(this.slug!.equals(other.slug!)) ) {
+      return false;
+    }
+
+    return true;
 
   }
 

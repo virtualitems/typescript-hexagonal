@@ -3,7 +3,6 @@
 // Same Shared Module Layer
 
 import DataManager from '@shared/application/data/DataManager';
-import IReadable from '@shared/application/data/IReadable';
 import UseCase from '@shared/application/UseCase';
 
 // Lower Shared Module Layers
@@ -12,13 +11,14 @@ import UseCase from '@shared/application/UseCase';
 
 // Same Layer
 
-import type FindUserDTO from '@context/users/application/FindUserDTO';
+import type FindUserDTO from './FindUserDTO';
+import type IUsersDataManager from './IUsersDataManager';
 
 // Lower Layers
 
 // Types
 
-type TManager = DataManager & IReadable<TObject>;
+type TManager = DataManager & IUsersDataManager;
 
 // Interfaces
 
@@ -57,10 +57,10 @@ export default class FindUsersUseCase extends UseCase
 
   // public METHODS
 
-  public override async execute(): Promise<Iterable<FindUserDTO>>
+  public override async execute(target: Partial<FindUserDTO>): Promise<Iterable<FindUserDTO>>
   {
     await this._manager.connect();
-    const data = await this._manager.all();
+    const data = await this._manager.filter(target);
     await this._manager.disconnect();
     return data;
   }

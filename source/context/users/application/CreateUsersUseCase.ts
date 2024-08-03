@@ -2,8 +2,6 @@
 
 // Same Shared Module Layer
 
-import IStorable from '@shared/application/data/IStorable';
-import Repository from '@shared/application/data/Repository';
 import UseCase from '@shared/application/UseCase';
 
 // Lower Shared Module Layers
@@ -12,15 +10,14 @@ import UseCase from '@shared/application/UseCase';
 
 // Same Layer
 
-import CreateUserDTO from '@context/users/application/CreateUserDTO';
+import type UsersRepository from './UsersRepository';
+import type CreateUserDTO from './CreateUserDTO';
 
 // Lower Layers
 
-import UsersService from '@context/users/domain/UsersService';
+import UsersService from '../domain/UsersService';
 
 // Types
-
-type TRepository = Repository & IStorable;
 
 // Interfaces
 
@@ -39,7 +36,7 @@ export default class CreateUsersUseCase extends UseCase
 
   // protected ATTRIBUTES
 
-  protected _repository: TRepository;
+  protected _repository: UsersRepository;
 
   // private ATTRIBUTES
 
@@ -51,7 +48,7 @@ export default class CreateUsersUseCase extends UseCase
 
   // Constructor, Getters, Setters
 
-  public constructor(repository: TRepository)
+  public constructor(repository: UsersRepository)
   {
     super();
     this._repository = repository;
