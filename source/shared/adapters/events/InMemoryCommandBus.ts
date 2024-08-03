@@ -1,13 +1,13 @@
 // Libraries
 
-// Same Shared Module Layer
+// Same Layer
 
-// Lower Shared Module Layers
+// Lower Layers
 
-import CommandsBus from '@shared/application/events/CommandsBus';
+import type Command from '../../application/events/Command';
+import type CommandHandler from '../../application/events/CommandHandler';
 
-import type Command from '@shared/application/events/Command';
-import type CommandHandler from '@shared/application/events/CommandHandler';
+import CommandsBus from '../../application/events/CommandsBus';
 
 // Types
 

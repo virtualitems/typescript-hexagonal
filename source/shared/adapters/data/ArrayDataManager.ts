@@ -1,10 +1,10 @@
 // Libraries
 
-// Same Shared Module Layer
+// Same Layer
 
-// Lower Shared Module Layers
+// Lower Layers
 
-import DataManager from '@shared/application/data/DataManager';
+import DataManager from '../../application/data/DataManager';
 
 // Types
 

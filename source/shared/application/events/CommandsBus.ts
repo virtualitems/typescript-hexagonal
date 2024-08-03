@@ -1,10 +1,10 @@
 // Libraries
 
-// Same Shared Module Layer
+// Same Layer
 
-import EventsBus from '@shared/application/events/EventsBus';
+import EventsBus from './EventsBus';
 
-// Lower Shared Module Layers
+// Lower Layers
 
 // Types
 

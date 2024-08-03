@@ -11,10 +11,3 @@
 // Constants
 
 // Functions
-
-// Ports
-
-export default
-{
-  //
-};

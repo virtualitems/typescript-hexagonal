@@ -1,10 +1,10 @@
 // Libraries
 
-// Same Shared Module Layer
+// Same Layer
 
-import type Event from '@shared/application/events/Event';
+import type Event from './Event';
 
-// Lower Shared Module Layers
+// Lower Layers
 
 // Types
 
