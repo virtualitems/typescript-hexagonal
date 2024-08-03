@@ -40,7 +40,7 @@ export default class CreateUserDTO extends DataTransferObject
   // Constructor, Getters, Setters
 
   public constructor (
-    public readonly slug?: string,
+    public readonly slug?: symbol,
     public readonly name?: string,
     public readonly email?: string,
   ) {

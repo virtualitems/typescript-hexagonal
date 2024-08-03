@@ -57,9 +57,9 @@ export default class CreateUsersUseCase extends UseCase
   public override async execute(dto: CreateUserDTO): Promise<void>
   {
     const data = {
-      slug: (dto.slug === undefined ? undefined : Symbol.for(dto.slug)),
+      slug: dto.slug,
       name: dto.name,
-      email: dto.email
+      email: dto.email,
     };
 
     const entity = UsersService.createUser(data);

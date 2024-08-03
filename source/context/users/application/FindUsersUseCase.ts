@@ -55,12 +55,15 @@ export default class FindUsersUseCase extends UseCase
 
   // public METHODS
 
-  public override async execute(target: Partial<FindUserDTO>): Promise<Iterable<FindUserDTO>>
+  public override async execute(target?: Partial<FindUserDTO>): Promise<Iterable<FindUserDTO>>
   {
     await this._manager.connect();
-    const data = await this._manager.filter(target);
-    await this._manager.disconnect();
-    return data;
+
+    if (target === undefined) {
+      return await this._manager.all();
+    }
+
+    return await this._manager.filter(target);
   }
 
   // protected METHODS
