@@ -1,11 +1,9 @@
 // Libraries
 
-// Same Shared Module Layer
+// Shared Module
 
 import DataManager from '@shared/application/data/DataManager';
 import UseCase from '@shared/application/UseCase';
-
-// Lower Shared Module Layers
 
 // Other Modules
 

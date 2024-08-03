@@ -1,10 +1,8 @@
 // Libraries
 
-// Same Shared Module Layer
+// Shared Module
 
 import DataTransferObject from '@shared/application/DataTransferObject';
-
-// Lower Shared Module Layers
 
 // Other Modules
 

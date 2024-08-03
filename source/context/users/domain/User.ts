@@ -1,6 +1,6 @@
 // Libraries
 
-// Same Shared Module Layer
+// Shared Module
 
 import Entity from '@shared/domain/Entity';
 import IIdentifiable from '@shared/domain/IIdentifiable';
@@ -9,8 +9,6 @@ import ISlugable from '@shared/domain/ISlugable';
 import EmailValueObject from '@shared/domain/value-objects/EmailValueObject';
 import SymbolValueObject from '@shared/domain/value-objects/SymbolValueObject';
 import StringValueObject from '@shared/domain/value-objects/StringValueObject';
-
-// Lower Shared Module Layers
 
 // Other Modules
 

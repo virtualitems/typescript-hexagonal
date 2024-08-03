@@ -1,18 +1,16 @@
 // Libraries
 
-// Same Shared Module Layer
+// Shared Module
 
 import EmailValueObject from '@shared/domain/value-objects/EmailValueObject';
 import SymbolValueObject from '@shared/domain/value-objects/SymbolValueObject';
 import StringValueObject from '@shared/domain/value-objects/StringValueObject';
 
-// Lower Shared Module Layers
-
 // Other Modules
 
 // Same Layer
 
-import User from '@context/users/domain/User';
+import User from './User';
 
 // Lower Layers
 

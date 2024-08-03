@@ -1,24 +1,22 @@
 // Libraries
 
-// Same Shared Module Layer
+// Shared Module
 
 import type DataManager from '@shared/application/data/DataManager';
 
 import Repository from '@shared/application/data/Repository';
 
-// Lower Shared Module Layers
-
 // Other Modules
 
 // Same Layer
 
-import type IUsersDataManager from '@context/users/application/IUsersDataManager';
+import type IUsersDataManager from './IUsersDataManager';
 
 // Lower Layers
 
-import type User from '@context/users/domain/User';
+import type User from '../domain/User';
 
-import UsersService from '@context/users/domain/UsersService';
+import UsersService from '../domain/UsersService';
 
 // Types
 

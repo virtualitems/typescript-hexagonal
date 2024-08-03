@@ -1,10 +1,8 @@
 // Libraries
 
-// Same Shared Module Layer
+// Shared Module
 
 import UseCase from '@shared/application/UseCase';
-
-// Lower Shared Module Layers
 
 // Other Modules
 

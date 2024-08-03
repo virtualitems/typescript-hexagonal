@@ -1,10 +1,8 @@
 // Libraries
 
-// Same Shared Module Layer
+// Shared Module
 
 import ArrayDataManager from '@shared/adapters/data/ArrayDataManager';
-
-// Lower Shared Module Layers
 
 // Other Modules
 
@@ -12,7 +10,7 @@ import ArrayDataManager from '@shared/adapters/data/ArrayDataManager';
 
 // Lower Layers
 
-import IUsersDataManager from '@context/users/application/IUsersDataManager';
+import IUsersDataManager from '../application/IUsersDataManager';
 
 // Types
 
