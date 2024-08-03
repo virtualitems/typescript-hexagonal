@@ -1,12 +1,12 @@
 // Libraries
 
-// Same Shared Module Layer
+// Same Layer
 
-import StringValueObject from '@shared/domain/value-objects/StringValueObject';
+import StringValueObject from './StringValueObject';
 
-import ValueError from '@shared/domain/errors/ValueError';
+import ValueError from '../errors/ValueError';
 
-// Lower Shared Module Layers
+// Lower Layers
 
 // Types
 
