@@ -39,19 +39,19 @@ export default class EmailValueObject extends StringValueObject
 
   // Constructor, Getters, Setters
 
-  get username(): string
+  get username(): string | undefined
   {
-    return this.value.split('@')[0];
+    return this.value.split('@').shift();
   }
 
-  get domain(): string
+  get domain(): string | undefined
   {
-    return this.value.split('@')[1];
+    return this.value.split('@').pop();
   }
 
-  get tld(): string
+  get tld(): string | undefined
   {
-    return this.domain.split('.').pop() ?? '';
+    return this.domain?.split('.').pop();
   }
 
   // public METHODS
