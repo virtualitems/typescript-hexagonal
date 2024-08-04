@@ -62,32 +62,32 @@ export default
 
   public async all(): Promise<Iterable<User>>
   {
-    await this._manager.connect();
-    const query = await this._manager.all();
+    await this.manager.connect();
+    const query = await this.manager.all();
     const data = Array.from(query).map(UsersService.createUser);
-    await this._manager.disconnect();
+    await this.manager.disconnect();
     return data;
   }
 
   public async store(data: User): Promise<void>
   {
-    await this._manager.connect();
-    await this._manager.store(data.flatten());
-    await this._manager.disconnect();
+    await this.manager.connect();
+    await this.manager.store(data.flatten());
+    await this.manager.disconnect();
   }
 
   public async update(target: User, data: Record<string, unknown>): Promise<void>
   {
-    await this._manager.connect();
-    await this._manager.update(target.flatten(), data);
-    await this._manager.disconnect();
+    await this.manager.connect();
+    await this.manager.update(target.flatten(), data);
+    await this.manager.disconnect();
   }
 
   public async delete(target: User): Promise<void>
   {
-    await this._manager.connect();
-    await this._manager.delete(target.flatten());
-    await this._manager.disconnect();
+    await this.manager.connect();
+    await this.manager.delete(target.flatten());
+    await this.manager.disconnect();
   }
 
   // protected METHODS
