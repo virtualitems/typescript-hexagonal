@@ -14,44 +14,44 @@ import type DataManager from './DataManager';
 
 
 /**
- * @description Represents a data source.
- */
+* @description Represents a data source.
+*/
 export default abstract class Repository<M extends DataManager>
 {
 
-  [property: string | symbol]: unknown;
+    [property: string | symbol]: unknown;
 
-  // Public Attributes
+    // Public Attributes
 
-  public manager: M;
+    public manager: M;
 
-  // Protected Attributes
+    // Protected Attributes
 
-  // Private Attributes
+    // Private Attributes
 
-  // Public Static Attributes
+    // Public Static Attributes
 
-  // Protected Static Attributes
+    // Protected Static Attributes
 
-  // Private Static Attributes
+    // Private Static Attributes
 
-  // Constructor, Getters, Setters
+    // Constructor, Getters, Setters
 
-  public constructor(manager: M)
-  {
-    this.manager = manager;
-  }
+    public constructor(manager: M)
+    {
+        this.manager = manager;
+    }
 
-  // Public Methods
+    // Public Methods
 
-  // Protected Methods
+    // Protected Methods
 
-  // Private Methods
+    // Private Methods
 
-  // Public Static Methods
+    // Public Static Methods
 
-  // Protected Static Methods
+    // Protected Static Methods
 
-  // Private Static Methods
+    // Private Static Methods
 
 } //:: class

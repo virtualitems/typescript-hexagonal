@@ -17,38 +17,38 @@
 export default abstract class Entity
 {
 
-  [property: string | symbol]: unknown;
+    [property: string | symbol]: unknown;
 
-  // public ATTRIBUTES
+    // public ATTRIBUTES
 
-  // protected ATTRIBUTES
+    // protected ATTRIBUTES
 
-  // private ATTRIBUTES
+    // private ATTRIBUTES
 
-  // public static ATTRIBUTES
+    // public static ATTRIBUTES
 
-  // protected static ATTRIBUTES
+    // protected static ATTRIBUTES
 
-  // private static ATTRIBUTES
+    // private static ATTRIBUTES
 
-  // Constructor, Getters, Setters
+    // Constructor, Getters, Setters
 
-  // public METHODS
+    // public METHODS
 
-  public abstract equals(other: Entity): boolean;
+    public abstract equals(other: Entity): boolean;
 
-  public abstract flatten(): Record<string, unknown>;
+    public abstract flatten(): Record<string, unknown>;
 
-  public abstract toString(): string;
+    public abstract toString(): string;
 
-  // protected METHODS
+    // protected METHODS
 
-  // private METHODS
+    // private METHODS
 
-  // public static METHODS
+    // public static METHODS
 
-  // protected static METHODS
+    // protected static METHODS
 
-  // private static METHODS
+    // private static METHODS
 
 } //:: class

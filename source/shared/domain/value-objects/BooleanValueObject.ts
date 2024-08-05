@@ -23,68 +23,68 @@ type T = boolean;
 export default class BooleanValueObject extends ValueObject
 {
 
-  [property: string | symbol]: unknown;
+    [property: string | symbol]: unknown;
 
-  // public ATTRIBUTES
+    // public ATTRIBUTES
 
-  public override readonly value: T;
+    public override readonly value: T;
 
-  // protected ATTRIBUTES
+    // protected ATTRIBUTES
 
-  // private ATTRIBUTES
+    // private ATTRIBUTES
 
-  // public static ATTRIBUTES
+    // public static ATTRIBUTES
 
-  // protected static ATTRIBUTES
+    // protected static ATTRIBUTES
 
-  // private static ATTRIBUTES
+    // private static ATTRIBUTES
 
-  // Constructor, Getters, Setters
+    // Constructor, Getters, Setters
 
-  protected constructor(value: T)
-  {
-    super();
-    this.value = value;
-  }
-
-  // public METHODS
-
-  public override equals(other: BooleanValueObject): boolean
-  {
-    return this._value === other.value;
-  }
-
-  public override toString(): string
-  {
-    return this.value.toString();
-  }
-
-  public toggle(): BooleanValueObject
-  {
-    return new BooleanValueObject(!this._value);
-  }
-
-  // protected METHODS
-
-  // private METHODS
-
-  // public static METHODS
-
-  public static override isValid(value: unknown): boolean
-  {
-    return ('boolean' === typeof value);
-  }
-
-  public static from(value: T): BooleanValueObject
-  {
-    if (!this.isValid(value)) {
-      throw new ValueError(value, this.name);
+    protected constructor(value: T)
+    {
+        super();
+        this.value = value;
     }
-    return new this(value);
-  }
 
-  // protected static METHODS
+    // public METHODS
 
-  // private static METHODS
+    public override equals(other: BooleanValueObject): boolean
+    {
+        return this._value === other.value;
+    }
+
+    public override toString(): string
+    {
+        return this.value.toString();
+    }
+
+    public toggle(): BooleanValueObject
+    {
+        return new BooleanValueObject(!this._value);
+    }
+
+    // protected METHODS
+
+    // private METHODS
+
+    // public static METHODS
+
+    public static override isValid(value: unknown): boolean
+    {
+        return ('boolean' === typeof value);
+    }
+
+    public static from(value: T): BooleanValueObject
+    {
+        if (!this.isValid(value)) {
+            throw new ValueError(value, this.name);
+        }
+        return new this(value);
+    }
+
+    // protected static METHODS
+
+    // private static METHODS
 
 } //:: class

@@ -14,58 +14,58 @@ import DataManager from '../../application/data/DataManager';
 
 
 /**
- * @description 
- */
+* @description 
+*/
 export default class ArrayDataManager<T extends TObject> extends DataManager
 {
 
-  [property: string | symbol]: unknown;
+    [property: string | symbol]: unknown;
 
-  // Public Attributes
+    // Public Attributes
 
-  // Protected Attributes
+    // Protected Attributes
 
-  protected _connection: T[] | null;
+    protected _connection: T[] | null;
 
-  protected _database: T[];
+    protected _database: T[];
 
-  // Private Attributes
+    // Private Attributes
 
-  // Public Static Attributes
+    // Public Static Attributes
 
-  // Protected Static Attributes
+    // Protected Static Attributes
 
-  // Private Static Attributes
+    // Private Static Attributes
 
-  // Constructor, Getters, Setters
+    // Constructor, Getters, Setters
 
-  constructor(database: T[])
-  {
-    super();
-    this._database = database;
-    this._connection = null;
-  }
+    constructor(database: T[])
+    {
+        super();
+        this._database = database;
+        this._connection = null;
+    }
 
-  // Public Methods
+    // Public Methods
 
-  public override async connect(): Promise<void>
-  {
-    this._connection = this._database;  // Set the connection
-  }
+    public override async connect(): Promise<void>
+    {
+        this._connection = this._database;  // Set the connection
+    }
 
-  public override async disconnect(): Promise<void>
-  {
-    this._connection = null;  // Clear the connection
-  }
+    public override async disconnect(): Promise<void>
+    {
+        this._connection = null;  // Clear the connection
+    }
 
-  // Protected Methods
+    // Protected Methods
 
-  // Private Methods
+    // Private Methods
 
-  // Public Static Methods
+    // Public Static Methods
 
-  // Protected Static Methods
+    // Protected Static Methods
 
-  // Private Static Methods
+    // Private Static Methods
 
 } //:: class
