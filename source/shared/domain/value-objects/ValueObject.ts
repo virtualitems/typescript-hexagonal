@@ -19,43 +19,43 @@ type TValue = string | symbol | number | bigint | boolean | object | null;
 export default abstract class ValueObject
 {
 
-  [property: string | symbol]: unknown;
+    [property: string | symbol]: unknown;
 
-  // public ATTRIBUTES
+    // public ATTRIBUTES
 
-  public abstract readonly value: TValue;
+    public abstract readonly value: TValue;
 
-  // protected ATTRIBUTES
+    // protected ATTRIBUTES
 
-  // private ATTRIBUTES
+    // private ATTRIBUTES
 
-  // public static ATTRIBUTES
+    // public static ATTRIBUTES
 
-  // protected static ATTRIBUTES
+    // protected static ATTRIBUTES
 
-  // private static ATTRIBUTES
+    // private static ATTRIBUTES
 
-  // Constructor, Getters, Setters
+    // Constructor, Getters, Setters
 
-  // public METHODS
+    // public METHODS
 
-  public abstract equals(other: ValueObject): boolean;
+    public abstract equals(other: ValueObject): boolean;
 
-  public abstract toString(): string;
+    public abstract toString(): string;
 
-  // protected METHODS
+    // protected METHODS
 
-  // private METHODS
+    // private METHODS
 
-  // public static METHODS
+    // public static METHODS
 
-  public static isValid(value: unknown): boolean
-  {
-    return value !== null && value !== undefined && !Object.is(value, NaN);
-  }
+    public static isValid(value: unknown): boolean
+    {
+        return value !== null && value !== undefined && !Object.is(value, NaN);
+    }
 
-  // protected static METHODS
+    // protected static METHODS
 
-  // private static METHODS
+    // private static METHODS
 
 } //:: class

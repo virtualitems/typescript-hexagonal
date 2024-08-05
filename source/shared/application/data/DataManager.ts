@@ -17,36 +17,36 @@
 export default abstract class DataManager
 {
 
-  [property: string | symbol]: unknown;
+    [property: string | symbol]: unknown;
 
-  // Public Attributes
+    // Public Attributes
 
-  // Protected Attributes
+    // Protected Attributes
 
-  // Private Attributes
+    // Private Attributes
 
-  // Public Static Attributes
+    // Public Static Attributes
 
-  // Protected Static Attributes
+    // Protected Static Attributes
 
-  // Private Static Attributes
+    // Private Static Attributes
 
-  // Constructor, Getters, Setters
+    // Constructor, Getters, Setters
 
-  // Public Methods
+    // Public Methods
 
-  public abstract connect(...args: unknown[]): Promise<unknown>;
+    public abstract connect(...args: unknown[]): Promise<unknown>;
 
-  public abstract disconnect(): Promise<unknown>;
+    public abstract disconnect(): Promise<unknown>;
 
-  // Protected Methods
+    // Protected Methods
 
-  // Private Methods
+    // Private Methods
 
-  // Public Static Methods
+    // Public Static Methods
 
-  // Protected Static Methods
+    // Protected Static Methods
 
-  // Private Static Methods
+    // Private Static Methods
 
 } //:: class

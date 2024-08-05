@@ -18,122 +18,122 @@ type T = number;
 
 
 /**
- * @description 
- */
+* @description 
+*/
 export default class NumericValueObject extends ValueObject
 {
 
-  [property: string | symbol]: unknown;
+    [property: string | symbol]: unknown;
 
-  // public ATTRIBUTES
+    // public ATTRIBUTES
 
-  public override readonly value: T;
+    public override readonly value: T;
 
-  // protected ATTRIBUTES
+    // protected ATTRIBUTES
 
-  // private ATTRIBUTES
+    // private ATTRIBUTES
 
-  // public static ATTRIBUTES
+    // public static ATTRIBUTES
 
-  // protected static ATTRIBUTES
+    // protected static ATTRIBUTES
 
-  // private static ATTRIBUTES
+    // private static ATTRIBUTES
 
-  // Constructor, Getters, Setters
+    // Constructor, Getters, Setters
 
-  protected constructor(value: T)
-  {
-    super();
-    this.value = value;
-  }
-
-  // public METHODS
-
-  public override equals(other: NumericValueObject): boolean
-  {
-    return this.value === other.value;
-  }
-
-  public override toString(): string
-  {
-    return this.value.toString();
-  }
-
-  public isInteger(): boolean
-  {
-    return Number.isInteger(this.value);
-  }
-
-  public isZero(): boolean
-  {
-    return this.value === 0;
-  }
-
-  public isPositive(): boolean
-  {
-    return this.value > 0;
-  }
-
-  public isNegative(): boolean
-  {
-    return this.value < 0;
-  }
-
-  public isOdd(): boolean
-  {
-    return (this.value & 1) === 1;
-  }
-
-  public isEven(): boolean
-  {
-    return (this.value & 1) === 0;
-  }
-
-  public isBetween(min: T, max: T, inclusiveMin = true, inclusiveMax = true): boolean
-  {
-
-    if (inclusiveMin && inclusiveMax) {
-      return this.value >= min && this.value <= max;
+    protected constructor(value: T)
+    {
+        super();
+        this.value = value;
     }
 
-    if (inclusiveMin) {
-      return this.value >= min && this.value < max;
+    // public METHODS
+
+    public override equals(other: NumericValueObject): boolean
+    {
+        return this.value === other.value;
     }
 
-    if (inclusiveMax) {
-      return this.value > min && this.value <= max;
+    public override toString(): string
+    {
+        return this.value.toString();
     }
 
-    return this.value > min && this.value < max;
-
-  }
-
-  // protected METHODS
-
-  // private METHODS
-
-  // public static METHODS
-
-  public static override isValid(value: unknown): boolean
-  {
-    return (
-      'number' === typeof value
-      && !Object.is(value, NaN)
-      && !Object.is(value, Infinity)
-      && !Object.is(value, -Infinity)
-    );
-  }
-
-  public static from(value: T): NumericValueObject
-  {
-    if (!this.isValid(value)) {
-      throw new ValueError(value, this.name);
+    public isInteger(): boolean
+    {
+        return Number.isInteger(this.value);
     }
-    return new this(value);
-  }
 
-  // protected static METHODS
+    public isZero(): boolean
+    {
+        return this.value === 0;
+    }
 
-  // private static METHODS
+    public isPositive(): boolean
+    {
+        return this.value > 0;
+    }
+
+    public isNegative(): boolean
+    {
+        return this.value < 0;
+    }
+
+    public isOdd(): boolean
+    {
+        return (this.value & 1) === 1;
+    }
+
+    public isEven(): boolean
+    {
+        return (this.value & 1) === 0;
+    }
+
+    public isBetween(min: T, max: T, inclusiveMin = true, inclusiveMax = true): boolean
+    {
+
+        if (inclusiveMin && inclusiveMax) {
+            return this.value >= min && this.value <= max;
+        }
+
+        if (inclusiveMin) {
+            return this.value >= min && this.value < max;
+        }
+
+        if (inclusiveMax) {
+            return this.value > min && this.value <= max;
+        }
+
+        return this.value > min && this.value < max;
+
+    }
+
+    // protected METHODS
+
+    // private METHODS
+
+    // public static METHODS
+
+    public static override isValid(value: unknown): boolean
+    {
+        return (
+            'number' === typeof value
+            && !Object.is(value, NaN)
+            && !Object.is(value, Infinity)
+            && !Object.is(value, -Infinity)
+        );
+    }
+
+    public static from(value: T): NumericValueObject
+    {
+        if (!this.isValid(value)) {
+            throw new ValueError(value, this.name);
+        }
+        return new this(value);
+    }
+
+    // protected static METHODS
+
+    // private static METHODS
 
 } //:: class

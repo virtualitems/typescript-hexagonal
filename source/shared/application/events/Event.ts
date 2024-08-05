@@ -17,42 +17,42 @@
 export default abstract class Event
 {
 
-  [property: string | symbol]: unknown;
+    [property: string | symbol]: unknown;
 
-  // public ATTRIBUTES
+    // public ATTRIBUTES
 
-  public readonly timestamp: number;
+    public readonly timestamp: number;
 
-  public readonly details?: Record<string, unknown>;
+    public readonly details?: Record<string, unknown>;
 
-  // protected ATTRIBUTES
+    // protected ATTRIBUTES
 
-  // private ATTRIBUTES
+    // private ATTRIBUTES
 
-  // public static ATTRIBUTES
+    // public static ATTRIBUTES
 
-  // protected static ATTRIBUTES
+    // protected static ATTRIBUTES
 
-  // private static ATTRIBUTES
+    // private static ATTRIBUTES
 
-  // Constructor, Getters, Setters
+    // Constructor, Getters, Setters
 
-  public constructor(timestamp: number, details?: Record<string, unknown>)
-  {
-    this.timestamp = timestamp;
-    this.details = details;
-  }
+    public constructor(timestamp: number, details?: Record<string, unknown>)
+    {
+        this.timestamp = timestamp;
+        this.details = details;
+    }
 
-  // public METHODS
+    // public METHODS
 
-  // protected METHODS
+    // protected METHODS
 
-  // private METHODS
+    // private METHODS
 
-  // public static METHODS
+    // public static METHODS
 
-  // protected static METHODS
+    // protected static METHODS
 
-  // private static METHODS
+    // private static METHODS
 
 } //:: class
