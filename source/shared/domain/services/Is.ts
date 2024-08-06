@@ -19,7 +19,6 @@ export default {
     object: (value: unknown) => (value !== null) && ('object' === typeof value),
     string: (value: unknown) => ('string' === typeof value),
     symbol: (value: unknown) => ('symbol' === typeof value),
-    valuable: (value: unknown) => (value !== undefined) && (value !== null) && !Object.is(value, NaN),
     not: {
         array: (value: unknown) => !Array.isArray(value),
         bigint: (value: unknown) => ('bigint' !== typeof value),
@@ -33,6 +32,5 @@ export default {
         object: (value: unknown) => (value === null) || ('object' !== typeof value),
         string: (value: unknown) => ('string' !== typeof value),
         symbol: (value: unknown) => ('symbol' !== typeof value),
-        valuable: (value: unknown) => (value === undefined) || (value === null) || Object.is(value, NaN),
     },
 };
