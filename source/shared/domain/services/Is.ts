@@ -17,6 +17,7 @@ export default {
     nan: (value: unknown) => Object.is(value, NaN),
     number: (value: unknown) => ('number' === typeof value),
     object: (value: unknown) => (value !== null) && ('object' === typeof value),
+    ref: Object.is,
     string: (value: unknown) => ('string' === typeof value),
     symbol: (value: unknown) => ('symbol' === typeof value),
     not: {
@@ -30,6 +31,7 @@ export default {
         nan: (value: unknown) => !Object.is(value, NaN),
         number: (value: unknown) => ('number' !== typeof value),
         object: (value: unknown) => (value === null) || ('object' !== typeof value),
+        ref: (value: unknown, other: unknown) => !Object.is(value, other),
         string: (value: unknown) => ('string' !== typeof value),
         symbol: (value: unknown) => ('symbol' !== typeof value),
     },
