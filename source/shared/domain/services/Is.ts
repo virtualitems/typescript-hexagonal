@@ -26,6 +26,7 @@ export default {
         boolean: (value: unknown) => ('boolean' !== typeof value),
         finite: (value: unknown) => !Number.isFinite(value),
         function: (value: unknown) => ('function' !== typeof value),
+        instanceOf: (value: unknown, constructor: Function) => !(value instanceof constructor),
         integer: (value: unknown) => !Number.isInteger(value),
         nan: (value: unknown) => !Object.is(value, NaN),
         number: (value: unknown) => ('number' !== typeof value),
