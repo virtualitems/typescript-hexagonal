@@ -3,8 +3,6 @@
 // Shared Module
 
 import Entity from '@shared/domain/Entity';
-import IIdentifiable from '@shared/domain/IIdentifiable';
-import ISlugable from '@shared/domain/ISlugable';
 
 import EmailValueObject from '@shared/domain/value-objects/EmailValueObject';
 import SymbolValueObject from '@shared/domain/value-objects/SymbolValueObject';
@@ -26,7 +24,7 @@ import StringValueObject from '@shared/domain/value-objects/StringValueObject';
 /**
  * @description 
  */
-export default class User extends Entity implements IIdentifiable, ISlugable
+export default class User extends Entity
 {
 
   [property: string | symbol]: unknown;
