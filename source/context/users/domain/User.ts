@@ -90,16 +90,6 @@ export default class User extends Entity
         };
     }
 
-    public override toString(): string
-    {
-        return String({
-            id: this.id?.toString(),
-            slug: this.slug?.toString(),
-            name: this.name?.toString(),
-            email: this.email?.toString()
-        });
-    }
-
     // protected METHODS
 
     // private METHODS
