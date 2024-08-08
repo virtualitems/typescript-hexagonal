@@ -1,8 +1,7 @@
 /**
  * @fileoverview provides a set of functions to check the type of a value using the typeof operator.
  *
- * @example is.valuable(1) // true
- * @example is.valuable(null) // false
+ * @example is.number(100) // true
  * @example is.not.number(100) // false
  */
 
