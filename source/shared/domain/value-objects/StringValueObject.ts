@@ -54,11 +54,6 @@ export default class StringValueObject extends ValueObject
         return this.value === other.value;
     }
 
-    public override toString(): string
-    {
-        return this.value;
-    }
-
     public isEmpty(): boolean
     {
         return this.value === '';

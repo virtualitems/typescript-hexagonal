@@ -39,8 +39,6 @@ export default abstract class Entity
 
     public abstract flatten():  TObject;
 
-    public abstract toString(): string;
-
     // protected METHODS
 
     // private METHODS

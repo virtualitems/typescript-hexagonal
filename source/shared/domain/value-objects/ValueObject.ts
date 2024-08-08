@@ -41,8 +41,6 @@ export default abstract class ValueObject
 
     public abstract equals(other: ValueObject): boolean;
 
-    public abstract toString(): string;
-
     // protected METHODS
 
     // private METHODS

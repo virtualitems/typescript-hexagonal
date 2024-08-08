@@ -54,11 +54,6 @@ export default class DateValueObject extends ValueObject
         return this.value.getTime() === other.value.getTime();
     }
 
-    public override toString(): string
-    {
-        return this.value.toString();
-    }
-
     public isAfter(other: DateValueObject): boolean
     {
         return this.value > other.value;
