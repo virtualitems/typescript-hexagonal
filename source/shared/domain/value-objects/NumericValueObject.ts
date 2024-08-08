@@ -54,11 +54,6 @@ export default class NumericValueObject extends ValueObject
         return this.value === other.value;
     }
 
-    public override toString(): string
-    {
-        return this.value.toString();
-    }
-
     public isInteger(): boolean
     {
         return Number.isInteger(this.value);

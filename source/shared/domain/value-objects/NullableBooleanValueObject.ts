@@ -54,11 +54,6 @@ export default class NullableBooleanValueObject extends ValueObject
         return this.value === other.value;
     }
 
-    public override toString(): string
-    {
-        return String(this.value);
-    }
-
     public isIndeterminate(): boolean
     {
         return this.value === null;

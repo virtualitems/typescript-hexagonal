@@ -54,11 +54,6 @@ export default class BooleanValueObject extends ValueObject
         return this._value === other.value;
     }
 
-    public override toString(): string
-    {
-        return this.value.toString();
-    }
-
     public toggle(): BooleanValueObject
     {
         return new BooleanValueObject(!this._value);
