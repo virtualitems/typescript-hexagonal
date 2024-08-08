@@ -35,7 +35,7 @@ export default abstract class EventHandler
 
     // public METHODS
 
-    public abstract handle(payload?: TObject): void;
+    public abstract handle(payload?: TObject): Promise<void>;
 
     // protected METHODS
 
