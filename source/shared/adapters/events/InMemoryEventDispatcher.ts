@@ -77,7 +77,7 @@ export default class InMemoryEventDispatcher extends EventDispatcher
 
     }
 
-    public dispatch(event: Event<unknown>): void
+    public dispatch(event: Event): void
     {
         const list = this._observers.get(event.constructor);
 
