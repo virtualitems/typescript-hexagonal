@@ -2,6 +2,8 @@
 
 // Same Layer
 
+import type Event from './Event';
+
 // Lower Layers
 
 // Types
@@ -35,7 +37,7 @@ export default abstract class EventHandler
 
     // public METHODS
 
-    public abstract handle(payload?: TObject): Promise<void>;
+    public abstract handle(event: Event): Promise<void>;
 
     // protected METHODS
 
