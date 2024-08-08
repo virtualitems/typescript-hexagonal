@@ -35,12 +35,23 @@ export default class ValueError extends Error
 
     public constructor(value: unknown, expected: string)
     {
-        const valueRepr = (
-            value === undefined ? 'undefined' :
-            value === null ? 'null' :
-            Object.is(value, NaN) ? 'NaN' :
-            `${value.constructor.name}(${value.toString()})`
-        );
+        let valueRepr: string;
+
+        if (value === undefined) {
+            valueRepr = 'undefined';
+        }
+
+        else if (value === null) {
+            valueRepr = 'null';
+        }
+
+        else if (Object.is(value, NaN)) {
+            valueRepr = 'NaN';
+        }
+
+        else {
+            valueRepr = `${value.constructor.name}(${value.toString()})`;
+        }
 
         super(`Invalid value ${valueRepr} for ${expected}.`);
     }
