@@ -18,45 +18,46 @@ import DataTransferObject from '@shared/application/DataTransferObject';
 
 
 /**
- * @description 
- */
+* @description 
+*/
 export default class CreateUserDTO extends DataTransferObject
 {
 
-  [property: string | symbol]: unknown;
+    [property: string | symbol]: unknown;
 
-  // public ATTRIBUTES
+    // public ATTRIBUTES
 
-  // protected ATTRIBUTES
+    // protected ATTRIBUTES
 
-  // private ATTRIBUTES
+    // private ATTRIBUTES
 
-  // public static ATTRIBUTES
+    // public static ATTRIBUTES
 
-  // protected static ATTRIBUTES
+    // protected static ATTRIBUTES
 
-  // private static ATTRIBUTES
+    // private static ATTRIBUTES
 
-  // Constructor, Getters, Setters
+    // Constructor, Getters, Setters
 
-  public constructor (
-    public readonly slug?: symbol,
-    public readonly name?: string,
-    public readonly email?: string,
-  ) {
-    super();
-  }
+    public constructor(
+        public readonly slug?: symbol,
+        public readonly name?: string,
+        public readonly email?: string,
+    )
+    {
+        super();
+    }
 
-  // public METHODS
+    // public METHODS
 
-  // protected METHODS
+    // protected METHODS
 
-  // private METHODS
+    // private METHODS
 
-  // public static METHODS
+    // public static METHODS
 
-  // protected static METHODS
+    // protected static METHODS
 
-  // private static METHODS
+    // private static METHODS
 
 } //:: class

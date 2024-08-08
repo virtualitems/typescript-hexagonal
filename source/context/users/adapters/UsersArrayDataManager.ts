@@ -20,156 +20,156 @@ import IUsersDataManager from '../application/IUsersDataManager';
 
 
 /**
- * @description 
- */
+* @description 
+*/
 export default
-  class
+    class
     UsersArrayDataManager
-  extends
+    extends
     ArrayDataManager<TObject>
-  implements
+    implements
     IUsersDataManager
 {
 
-  [property: string | symbol]: unknown;
+    [property: string | symbol]: unknown;
 
-  // public ATTRIBUTES
+    // public ATTRIBUTES
 
-  // protected ATTRIBUTES
+    // protected ATTRIBUTES
 
-  // private ATTRIBUTES
+    // private ATTRIBUTES
 
-  // public static ATTRIBUTES
+    // public static ATTRIBUTES
 
-  // protected static ATTRIBUTES
+    // protected static ATTRIBUTES
 
-  // private static ATTRIBUTES
+    // private static ATTRIBUTES
 
-  // Constructor, Getters, Setters
+    // Constructor, Getters, Setters
 
-  // public METHODS
+    // public METHODS
 
 
-  public async all(): Promise<TObject[]>
-  {
+    public async all(): Promise<TObject[]>
+    {
 
-    if (!this._connection) {
-      throw new Error('Database not connected.');
-    }
-
-    return Array.from(this._connection);
-  }
-
-  public async filter(target: Partial<TObject>): Promise<TObject[]>
-  {
-
-    if (!this._connection) {
-      throw new Error('Database not connected.');
-    }
-
-    const result: TObject[] = [];
-
-    for (const item of this._connection) {
-
-      let match = true;
-
-      for (const key in target) {
-
-        if (target[key] === undefined) {
-          continue;
+        if (!this._connection) {
+            throw new Error('Database not connected.');
         }
 
-        if (item[key] !== target[key]) {
-          match = false;
-          break;
-        }
-
-      }
-
-      if (match) {
-        result.push(item);
-      }
-
-    } //:: for
-
-    return result;
-
-  }
-
-  public async store(data: TObject): Promise<void>
-  {
-
-    if (!this._connection) {
-      throw new Error('Database not connected.');
+        return Array.from(this._connection);
     }
 
-    this._connection.push(data);
+    public async filter(target: Partial<TObject>): Promise<TObject[]>
+    {
 
-  }
+        if (!this._connection) {
+            throw new Error('Database not connected.');
+        }
 
-  public async update(target: Partial<TObject>, data: Partial<TObject>): Promise<void>
-  {
+        const result: TObject[] = [];
 
-    if (!this._connection) {
-      throw new Error('Database not connected.');
+        for (const item of this._connection) {
+
+            let match = true;
+
+            for (const key in target) {
+
+                if (target[key] === undefined) {
+                    continue;
+                }
+
+                if (item[key] !== target[key]) {
+                    match = false;
+                    break;
+                }
+
+            }
+
+            if (match) {
+                result.push(item);
+            }
+
+        } //:: for
+
+        return result;
+
     }
 
-    for (const item of this._connection) {
+    public async store(data: TObject): Promise<void>
+    {
 
-      let match = true;
-
-      for (const key in target) {
-
-        if (target[key] === undefined) {
-          continue;
+        if (!this._connection) {
+            throw new Error('Database not connected.');
         }
 
-        if (item[key] !== target[key]) {
-          match = false;
-          break;
-        }
+        this._connection.push(data);
 
-      }
-
-      if (match) {
-        Object.assign(item, data);
-      }
-
-    } //:: for
-
-  }
-
-  public async delete(target: Partial<TObject>): Promise<void>
-  {
-
-    if (!this._connection) {
-      throw new Error('Database not connected.');
     }
 
-    for (let i = 0; i < this._connection.length; i++) {
+    public async update(target: Partial<TObject>, data: Partial<TObject>): Promise<void>
+    {
 
-      const item = this._connection[i];
-
-      for (const key in item) {
-        if (item[key] !== target[key]) {
-          continue;
+        if (!this._connection) {
+            throw new Error('Database not connected.');
         }
-      }
 
-      this._connection.splice(i, 1);
+        for (const item of this._connection) {
 
-    } //:: for
+            let match = true;
 
-  }
+            for (const key in target) {
 
-  // protected METHODS
+                if (target[key] === undefined) {
+                    continue;
+                }
 
-  // private METHODS
+                if (item[key] !== target[key]) {
+                    match = false;
+                    break;
+                }
 
-  // public static METHODS
+            }
 
-  // protected static METHODS
+            if (match) {
+                Object.assign(item, data);
+            }
 
-  // private static METHODS
+        } //:: for
+
+    }
+
+    public async delete(target: Partial<TObject>): Promise<void>
+    {
+
+        if (!this._connection) {
+            throw new Error('Database not connected.');
+        }
+
+        for (let i = 0; i < this._connection.length; i++) {
+
+            const item = this._connection[i];
+
+            for (const key in item) {
+                if (item[key] !== target[key]) {
+                    continue;
+                }
+            }
+
+            this._connection.splice(i, 1);
+
+        } //:: for
+
+    }
+
+    // protected METHODS
+
+    // private METHODS
+
+    // public static METHODS
+
+    // protected static METHODS
+
+    // private static METHODS
 
 } //:: class

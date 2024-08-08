@@ -24,56 +24,56 @@ type TManager = DataManager & IUsersDataManager;
 
 
 /**
- * @description 
- */
+* @description 
+*/
 export default class FindUsersUseCase extends UseCase
 {
 
-  [property: string | symbol]: unknown;
+    [property: string | symbol]: unknown;
 
-  // public ATTRIBUTES
+    // public ATTRIBUTES
 
-  // protected ATTRIBUTES
+    // protected ATTRIBUTES
 
-  protected _manager: TManager;
+    protected _manager: TManager;
 
-  // private ATTRIBUTES
+    // private ATTRIBUTES
 
-  // public static ATTRIBUTES
+    // public static ATTRIBUTES
 
-  // protected static ATTRIBUTES
+    // protected static ATTRIBUTES
 
-  // private static ATTRIBUTES
+    // private static ATTRIBUTES
 
-  // Constructor, Getters, Setters
+    // Constructor, Getters, Setters
 
-  public constructor(manager: TManager)
-  {
-    super();
-    this._manager = manager;
-  }
-
-  // public METHODS
-
-  public override async execute(target?: Partial<FindUserDTO>): Promise<Iterable<FindUserDTO>>
-  {
-    await this._manager.connect();
-
-    if (target === undefined) {
-      return await this._manager.all();
+    public constructor(manager: TManager)
+    {
+        super();
+        this._manager = manager;
     }
 
-    return await this._manager.filter(target);
-  }
+    // public METHODS
 
-  // protected METHODS
+    public override async execute(target?: Partial<FindUserDTO>): Promise<Iterable<FindUserDTO>>
+    {
+        await this._manager.connect();
 
-  // private METHODS
+        if (target === undefined) {
+            return await this._manager.all();
+        }
 
-  // public static METHODS
+        return await this._manager.filter(target);
+    }
 
-  // protected static METHODS
+    // protected METHODS
 
-  // private static METHODS
+    // private METHODS
+
+    // public static METHODS
+
+    // protected static METHODS
+
+    // private static METHODS
 
 } //:: class

@@ -23,57 +23,57 @@ import UsersService from '../domain/UsersService';
 
 
 /**
- * @description 
- */
+* @description 
+*/
 export default class CreateUsersUseCase extends UseCase
 {
 
-  [property: string | symbol]: unknown;
+    [property: string | symbol]: unknown;
 
-  // public ATTRIBUTES
+    // public ATTRIBUTES
 
-  // protected ATTRIBUTES
+    // protected ATTRIBUTES
 
-  protected _repository: UsersRepository;
+    protected _repository: UsersRepository;
 
-  // private ATTRIBUTES
+    // private ATTRIBUTES
 
-  // public static ATTRIBUTES
+    // public static ATTRIBUTES
 
-  // protected static ATTRIBUTES
+    // protected static ATTRIBUTES
 
-  // private static ATTRIBUTES
+    // private static ATTRIBUTES
 
-  // Constructor, Getters, Setters
+    // Constructor, Getters, Setters
 
-  public constructor(repository: UsersRepository)
-  {
-    super();
-    this._repository = repository;
-  }
+    public constructor(repository: UsersRepository)
+    {
+        super();
+        this._repository = repository;
+    }
 
-  // public METHODS
+    // public METHODS
 
-  public override async execute(dto: CreateUserDTO): Promise<void>
-  {
-    const data = {
-      slug: dto.slug,
-      name: dto.name,
-      email: dto.email,
-    };
+    public override async execute(dto: CreateUserDTO): Promise<void>
+    {
+        const data = {
+            slug: dto.slug,
+            name: dto.name,
+            email: dto.email,
+        };
 
-    const entity = UsersService.createUser(data);
-    await this._repository.store(entity);
-  }
+        const entity = UsersService.createUser(data);
+        await this._repository.store(entity);
+    }
 
-  // protected METHODS
+    // protected METHODS
 
-  // private METHODS
+    // private METHODS
 
-  // public static METHODS
+    // public static METHODS
 
-  // protected static METHODS
+    // protected static METHODS
 
-  // private static METHODS
+    // private static METHODS
 
 } //:: class

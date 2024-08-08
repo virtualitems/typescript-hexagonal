@@ -16,8 +16,8 @@
 
 
 /**
- * @description 
- */
+* @description 
+*/
 export default interface IUsersDataManager
 {
 

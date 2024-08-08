@@ -31,73 +31,73 @@ type TManager = DataManager & IUsersDataManager;
  * @description 
  */
 export default
-  class
+    class
     UsersRepository
-  extends
+    extends
     Repository<TManager>
 {
 
-  [property: string | symbol]: unknown;
+    [property: string | symbol]: unknown;
 
-  // public ATTRIBUTES
+    // public ATTRIBUTES
 
-  // protected ATTRIBUTES
+    // protected ATTRIBUTES
 
-  // private ATTRIBUTES
+    // private ATTRIBUTES
 
-  // public static ATTRIBUTES
+    // public static ATTRIBUTES
 
-  // protected static ATTRIBUTES
+    // protected static ATTRIBUTES
 
-  // private static ATTRIBUTES
+    // private static ATTRIBUTES
 
-  // Constructor, Getters, Setters
+    // Constructor, Getters, Setters
 
-  public constructor(manager: TManager)
-  {
-    super(manager);
-  }
+    public constructor(manager: TManager)
+    {
+        super(manager);
+    }
 
-  // public METHODS
+    // public METHODS
 
-  public async all(): Promise<Iterable<User>>
-  {
-    await this.manager.connect();
-    const query = await this.manager.all();
-    const data = Array.from(query).map(UsersService.createUser);
-    await this.manager.disconnect();
-    return data;
-  }
+    public async all(): Promise<Iterable<User>>
+    {
+        await this.manager.connect();
+        const query = await this.manager.all();
+        const data = Array.from(query).map(UsersService.createUser);
+        await this.manager.disconnect();
+        return data;
+    }
 
-  public async store(data: User): Promise<void>
-  {
-    await this.manager.connect();
-    await this.manager.store(data.flatten());
-    await this.manager.disconnect();
-  }
+    public async store(data: User): Promise<void>
+    {
+        await this.manager.connect();
+        await this.manager.store(data.flatten());
+        await this.manager.disconnect();
+    }
 
-  public async update(target: User, data: Record<string, unknown>): Promise<void>
-  {
-    await this.manager.connect();
-    await this.manager.update(target.flatten(), data);
-    await this.manager.disconnect();
-  }
+    public async update(target: User, data: Record<string, unknown>): Promise<void>
+    {
+        await this.manager.connect();
+        await this.manager.update(target.flatten(), data);
+        await this.manager.disconnect();
+    }
 
-  public async delete(target: User): Promise<void>
-  {
-    await this.manager.connect();
-    await this.manager.delete(target.flatten());
-    await this.manager.disconnect();
-  }
+    public async delete(target: User): Promise<void>
+    {
+        await this.manager.connect();
+        await this.manager.delete(target.flatten());
+        await this.manager.disconnect();
+    }
 
-  // protected METHODS
+    // protected METHODS
 
-  // private METHODS
+    // private METHODS
 
-  // public static METHODS
+    // public static METHODS
 
-  // protected static METHODS
+    // protected static METHODS
 
-  // private static METHODS
+    // private static METHODS
 
 } //:: class

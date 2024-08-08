@@ -27,59 +27,59 @@ import User from './User';
 export default class UsersService
 {
 
-  [property: string | symbol]: unknown;
+    [property: string | symbol]: unknown;
 
-  // public ATTRIBUTES
+    // public ATTRIBUTES
 
-  // protected ATTRIBUTES
+    // protected ATTRIBUTES
 
-  // private ATTRIBUTES
+    // private ATTRIBUTES
 
-  // public static ATTRIBUTES
+    // public static ATTRIBUTES
 
-  // protected static ATTRIBUTES
+    // protected static ATTRIBUTES
 
-  // private static ATTRIBUTES
+    // private static ATTRIBUTES
 
-  // Constructor, Getters, Setters
+    // Constructor, Getters, Setters
 
-  // public METHODS
+    // public METHODS
 
-  // protected METHODS
+    // protected METHODS
 
-  // private METHODS
+    // private METHODS
 
-  // public static METHODS
+    // public static METHODS
 
-  public static createUser(data: {id?: symbol, slug?: symbol, name?: string, email?: string}): User
-  {
-    const entity = new User();
+    public static createUser(data: { id?: symbol, slug?: symbol, name?: string, email?: string; }): User
+    {
+        const entity = new User();
 
-    if (data === undefined) {
-      return entity;
+        if (data === undefined) {
+            return entity;
+        }
+
+        if (data.id !== undefined) {
+            entity.id = SymbolValueObject.from(data.id);
+        }
+
+        if (data.slug !== undefined) {
+            entity.slug = SymbolValueObject.from(data.slug);
+        }
+
+        if (data.name !== undefined) {
+            entity.name = StringValueObject.from(data.name);
+        }
+
+        if (data.email !== undefined) {
+            entity.email = EmailValueObject.from(data.email);
+        }
+
+        return entity;
     }
 
-    if (data.id !== undefined) {
-      entity.id = SymbolValueObject.from(data.id);
-    }
+    // protected static METHODS
 
-    if (data.slug !== undefined) {
-      entity.slug = SymbolValueObject.from(data.slug);
-    }
-
-    if (data.name !== undefined) {
-      entity.name = StringValueObject.from(data.name);
-    }
-
-    if (data.email !== undefined) {
-      entity.email = EmailValueObject.from(data.email);
-    }
-
-    return entity;
-  }
-
-  // protected static METHODS
-
-  // private static METHODS
+    // private static METHODS
 
 } //:: class
