@@ -60,7 +60,7 @@ export default
 
     // public METHODS
 
-    public async all(): Promise<Iterable<User>>
+    public async all(): Promise<User[]>
     {
         await this.manager.connect();
         const query = await this.manager.all();
