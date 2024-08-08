@@ -35,7 +35,7 @@ export default abstract class EventHandler
 
     // public METHODS
 
-    public abstract handle(payload?: Record<string, unknown>): void;
+    public abstract handle(payload?: TObject): void;
 
     // protected METHODS
 
