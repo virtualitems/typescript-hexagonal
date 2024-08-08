@@ -5,9 +5,3 @@
 // Domain layer
 
 // Types
-
-// Interfaces
-
-// Constants
-
-// Functions
