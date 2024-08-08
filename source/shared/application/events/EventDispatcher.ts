@@ -42,7 +42,7 @@ export default abstract class EventDispatcher
 
     public abstract unsubscribe(key: unknown, handler: EventHandler): void;
 
-    public abstract dispatch(event: Event<unknown>): void;
+    public abstract dispatch(event: Event): void;
 
     // protected METHODS
 

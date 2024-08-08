@@ -14,7 +14,7 @@
 /**
  * @description 
  */
-export default abstract class Event<D>
+export default abstract class Event
 {
 
     [property: string | symbol]: unknown;
@@ -23,7 +23,7 @@ export default abstract class Event<D>
 
     public readonly timestamp: number;
 
-    public readonly details?: D;
+    public readonly details?: TObject;
 
     // protected ATTRIBUTES
 
@@ -37,7 +37,7 @@ export default abstract class Event<D>
 
     // Constructor, Getters, Setters
 
-    public constructor(timestamp: number, details?: D)
+    public constructor(timestamp: number, details?: TObject)
     {
         this.timestamp = timestamp;
         this.details = details;
