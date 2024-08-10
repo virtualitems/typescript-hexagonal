@@ -5,5 +5,3 @@
 // Domain layer
 
 // Constants
-
-// Functions
