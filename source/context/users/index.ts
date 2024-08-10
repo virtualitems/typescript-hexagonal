@@ -13,5 +13,3 @@ export { default as UsersRepository } from './application/UsersRepository';
 export { default as UsersService } from './domain/UsersService';
 
 // Constants
-
-// Functions
