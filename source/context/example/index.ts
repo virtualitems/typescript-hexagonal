@@ -4,4 +4,6 @@
 
 // Domain layer
 
-// Types
+// Constants
+
+// Functions
