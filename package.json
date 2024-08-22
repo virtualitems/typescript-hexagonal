@@ -1,5 +1,6 @@
 {
-  "name": "hexgen-ts",
+  "name": "typescript-hexagonal",
+  "private": true,
   "version": "1.0.0",
   "author": "https://github.com/virtualitems/",
   "description": "Typescript Hexagonal Architecture",
@@ -13,14 +14,20 @@
     "template",
     "typescript"
   ],
-  "main": "source/main.ts",
+  "type": "module",
+  "main": "./build/main.js",
+  "files": [
+    "build",
+    "index.d.ts"
+  ],
+  "types": "./index.d.ts",
   "scripts": {
-    "build": "tsc && tsc-alias",
+    "build": "tsc --project tsconfig.json && tsc-alias -p tsconfig.json",
     "test": "jest"
   },
   "devDependencies": {
     "jest": "^29.7.0",
     "tsc-alias": "^1.8.10",
-    "typescript": "^5.4.2"
+    "typescript": "^5.4.5"
   }
 }
