@@ -22,12 +22,17 @@
   ],
   "types": "./index.d.ts",
   "scripts": {
-    "build": "tsc --project tsconfig.json && tsc-alias -p tsconfig.json",
+    "build": "tsc --project tsconfig.json && tsc-alias -p tsconfig.json && rollup -c rollup.config.js",
     "test": "jest"
   },
   "devDependencies": {
     "jest": "^29.7.0",
+    "rollup": "^4.21.0",
+    "rollup-plugin-commonjs": "^10.1.0",
+    "rollup-plugin-node-resolve": "^5.2.0",
+    "rollup-plugin-replace": "^2.2.0",
     "tsc-alias": "^1.8.10",
     "typescript": "^5.4.5"
-  }
+  },
+  "dependencies": {}
 }
