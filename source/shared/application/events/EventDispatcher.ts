@@ -2,8 +2,8 @@
 
 // Same Layer
 
-import type Event from './Event';
-import type EventHandler from './EventHandler';
+import type Event from './Event.js';
+import type EventHandler from './EventHandler.js';
 
 // Lower Layers
 

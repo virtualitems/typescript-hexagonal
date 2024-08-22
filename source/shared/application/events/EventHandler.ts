@@ -2,7 +2,7 @@
 
 // Same Layer
 
-import type Event from './Event';
+import type Event from './Event.js';
 
 // Lower Layers
 

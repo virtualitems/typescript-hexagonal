@@ -5,8 +5,10 @@
 .wiki/
 
 # Node
-dist/
 node_modules/
+
+# Build
+dist/
 
 # Environment
 .env

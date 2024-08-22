@@ -2,7 +2,7 @@
 
 // Same Layer
 
-import type DataManager from './DataManager';
+import type DataManager from './DataManager.js';
 
 // Lower Layers
 
