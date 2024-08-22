@@ -24,7 +24,7 @@
     },
     "typeRoots": [
       "./node_modules/@types",
-      "./source/shared/index.d.ts"
+      "./index.d.ts"
     ],
     "resolveJsonModule": true,
     "allowJs": false,
