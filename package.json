@@ -22,7 +22,8 @@
   ],
   "types": "./index.d.ts",
   "scripts": {
-    "build": "tsc --project tsconfig.json && tsc-alias -p tsconfig.json && rollup -c rollup.config.js",
+    "build:bundle": "tsc --project tsconfig.json && tsc-alias -p tsconfig.json && rollup -c rollup.config.js",
+    "build": "tsc --project tsconfig.json && tsc-alias -p tsconfig.json",
     "test": "jest"
   },
   "devDependencies": {
