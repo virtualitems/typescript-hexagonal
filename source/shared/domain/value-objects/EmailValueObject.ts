@@ -2,9 +2,9 @@
 
 // Same Layer
 
-import StringValueObject from './StringValueObject';
+import StringValueObject from './StringValueObject.js';
 
-import ValueError from '../errors/ValueError';
+import ValueError from '../errors/ValueError.js';
 
 // Lower Layers
 
