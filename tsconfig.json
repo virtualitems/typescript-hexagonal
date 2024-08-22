@@ -13,9 +13,9 @@
     ],
     "useDefineForClassFields": true,
     "moduleDetection": "force",
-    "module": "ESNext",
+    "module": "NodeNext",
     "rootDir": "./source",
-    "moduleResolution": "Bundler",
+    "moduleResolution": "NodeNext",
     "baseUrl": "./",
     "paths": {
       "@shared/*": [
