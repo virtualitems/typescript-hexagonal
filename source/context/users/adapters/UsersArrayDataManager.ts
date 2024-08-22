@@ -2,7 +2,7 @@
 
 // Shared Module
 
-import ArrayDataManager from '@shared/adapters/data/ArrayDataManager';
+import ArrayDataManager from '@shared/adapters/data/ArrayDataManager.js';
 
 // Other Modules
 
@@ -10,7 +10,7 @@ import ArrayDataManager from '@shared/adapters/data/ArrayDataManager';
 
 // Lower Layers
 
-import IUsersDataManager from '../application/IUsersDataManager';
+import IUsersDataManager from '../application/IUsersDataManager.js';
 
 // Types
 

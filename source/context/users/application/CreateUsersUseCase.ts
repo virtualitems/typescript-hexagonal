@@ -2,18 +2,18 @@
 
 // Shared Module
 
-import UseCase from '@shared/application/UseCase';
+import UseCase from '@shared/application/UseCase.js';
 
 // Other Modules
 
 // Same Layer
 
-import type UsersRepository from './UsersRepository';
-import type CreateUserDTO from './CreateUserDTO';
+import type UsersRepository from './UsersRepository.js';
+import type CreateUserDTO from './CreateUserDTO.js';
 
 // Lower Layers
 
-import UsersService from '../domain/UsersService';
+import UsersService from '../domain/UsersService.js';
 
 // Types
 

@@ -2,11 +2,11 @@
 
 // Shared Module
 
-import Entity from '@shared/domain/Entity';
+import Entity from '@shared/domain/Entity.js';
 
-import EmailValueObject from '@shared/domain/value-objects/EmailValueObject';
-import SymbolValueObject from '@shared/domain/value-objects/SymbolValueObject';
-import StringValueObject from '@shared/domain/value-objects/StringValueObject';
+import EmailValueObject from '@shared/domain/value-objects/EmailValueObject.js';
+import SymbolValueObject from '@shared/domain/value-objects/SymbolValueObject.js';
+import StringValueObject from '@shared/domain/value-objects/StringValueObject.js';
 
 // Other Modules
 

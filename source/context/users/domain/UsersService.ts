@@ -2,15 +2,15 @@
 
 // Shared Module
 
-import EmailValueObject from '@shared/domain/value-objects/EmailValueObject';
-import SymbolValueObject from '@shared/domain/value-objects/SymbolValueObject';
-import StringValueObject from '@shared/domain/value-objects/StringValueObject';
+import EmailValueObject from '@shared/domain/value-objects/EmailValueObject.js';
+import SymbolValueObject from '@shared/domain/value-objects/SymbolValueObject.js';
+import StringValueObject from '@shared/domain/value-objects/StringValueObject.js';
 
 // Other Modules
 
 // Same Layer
 
-import User from './User';
+import User from './User.js';
 
 // Lower Layers
 

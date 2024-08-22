@@ -2,15 +2,15 @@
 
 // Shared Module
 
-import DataManager from '@shared/application/data/DataManager';
-import UseCase from '@shared/application/UseCase';
+import DataManager from '@shared/application/data/DataManager.js';
+import UseCase from '@shared/application/UseCase.js';
 
 // Other Modules
 
 // Same Layer
 
-import type FindUserDTO from './FindUserDTO';
-import type IUsersDataManager from './IUsersDataManager';
+import type FindUserDTO from './FindUserDTO.js';
+import type IUsersDataManager from './IUsersDataManager.js';
 
 // Lower Layers
 

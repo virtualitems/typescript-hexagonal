@@ -4,10 +4,10 @@
 
 // Lower Layers
 
-import type Event from '../../application/events/Event';
-import type EventHandler from '../../application/events/EventHandler';
+import type Event from '../../application/events/Event.js';
+import type EventHandler from '../../application/events/EventHandler.js';
 
-import EventDispatcher from '../../application/events/EventDispatcher';
+import EventDispatcher from '../../application/events/EventDispatcher.js';
 
 // Types
 

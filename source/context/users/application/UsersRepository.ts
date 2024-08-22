@@ -2,21 +2,21 @@
 
 // Shared Module
 
-import type DataManager from '@shared/application/data/DataManager';
+import type DataManager from '@shared/application/data/DataManager.js';
 
-import Repository from '@shared/application/data/Repository';
+import Repository from '@shared/application/data/Repository.js';
 
 // Other Modules
 
 // Same Layer
 
-import type IUsersDataManager from './IUsersDataManager';
+import type IUsersDataManager from './IUsersDataManager.js';
 
 // Lower Layers
 
-import type User from '../domain/User';
+import type User from '../domain/User.js';
 
-import UsersService from '../domain/UsersService';
+import UsersService from '../domain/UsersService.js';
 
 // Types
 

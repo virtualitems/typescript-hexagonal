@@ -4,7 +4,7 @@
 
 // Lower Layers
 
-import DataManager from '../../application/data/DataManager';
+import DataManager from '../../application/data/DataManager.js';
 
 // Types
 

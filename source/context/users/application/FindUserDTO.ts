@@ -2,7 +2,7 @@
 
 // Shared Module
 
-import DataTransferObject from '@shared/application/DataTransferObject';
+import DataTransferObject from '@shared/application/DataTransferObject.js';
 
 // Other Modules
 
